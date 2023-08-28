@@ -8,11 +8,7 @@
 class Menu {
 public:
     virtual ~Menu( ) = default;
-    virtual bool process( ) {
-        display( );
-        int choice = selectMenuItem( );
-        return doChoice( choice );
-    }
+    virtual bool process();
 protected:
     virtual void display( ) const = 0;
     virtual int  selectMenuItem( );
