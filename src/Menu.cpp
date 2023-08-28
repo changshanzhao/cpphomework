@@ -16,233 +16,233 @@ int Menu::selectMenuItem( ) {
 
 void MainMenu::display( ) const {
     system( "cls" );
-    cout << "\n\t	ä¸»èœå•\n\n";
-    cout << "\t	1. ä¾›åº”å•†ç®¡ç†\n";
-    cout << "\t	2. ä¾›åº”å•†äº§å“ç®¡ç†\n";
-    cout << "\t	3. é‡‡è´­é¡¹ç®¡ç†\n";
-    cout << "\t	4. è¯¢ä»·ç®¡ç†\n";
-    cout << "\t	5. è®¢å•ç®¡ç†\n";
-    cout << "\t	6. ä¿¡æ¯å¯¼å‡º\n";
-    cout << "\t	0. é€€å‡º\n\n";
+    cout << "\n\t	Ö÷²Ëµ¥\n\n";
+    cout << "\t	1. ¹©Ó¦ÉÌ¹ÜÀí\n";
+    cout << "\t	2. ¹©Ó¦ÉÌ²úÆ·¹ÜÀí\n";
+    cout << "\t	3. ²É¹ºÏî¹ÜÀí\n";
+    cout << "\t	4. Ñ¯¼Û¹ÜÀí\n";
+    cout << "\t	5. ¶©µ¥¹ÜÀí\n";
+    cout << "\t	6. ÐÅÏ¢µ¼³ö\n";
+    cout << "\t	0. ÍË³ö\n\n";
 
-    cout << "\t è¯·é€‰æ‹©ï¼ˆ0-6ï¼‰ï¼š";
+    cout << "\t ÇëÑ¡Ôñ£¨0-6£©£º";
 }
 
 bool MainMenu::doChoice( int choice ) {
     switch ( choice ) {
         case 0:
-            return false;  //é€€å‡ºç»ˆæ­¢
+            return false;  //ÍË³öÖÕÖ¹
         case 1:
-            //è½¬åˆ°ä¾›åº”å•†ç®¡ç†èœå•
+            //×ªµ½¹©Ó¦ÉÌ¹ÜÀí²Ëµ¥
             MenuMgr::getInstance( ).setCurrentMenu( MenuType::VENDOR_MENU );
             break;
         case 2:
-            //è½¬åˆ°ä¾›åº”å•†å•†å“èœå•
+            //×ªµ½¹©Ó¦ÉÌÉÌÆ·²Ëµ¥
             MenuMgr::getInstance( ).setCurrentMenu( MenuType::PRODUCT_MENU );
             break;
         case 3:
-            //è½¬åˆ°é‡‡è´­é¡¹èœå•
+            //×ªµ½²É¹ºÏî²Ëµ¥
             MenuMgr::getInstance( ).setCurrentMenu( MenuType::PURCHASE_MENU );
             break;
         case 4:
-            //è½¬åˆ°è¯¢ä»·èœå•
+            //×ªµ½Ñ¯¼Û²Ëµ¥
             MenuMgr::getInstance( ).setCurrentMenu( MenuType::INQUIRY_MENU );
             break;
         case 5:
-            //è½¬åˆ°è®¢å•èœå•
+            //×ªµ½¶©µ¥²Ëµ¥
             MenuMgr::getInstance( ).setCurrentMenu( MenuType::ORDER_MENU );
             break;
         case 6:
-            //è½¬åˆ°å¯¼å‡ºèœå•
+            //×ªµ½µ¼³ö²Ëµ¥
             MenuMgr::getInstance( ).setCurrentMenu( MenuType::EXPORT_MENU );
             break;
     }
     return true;
 }
 
-//ä¾›åº”å•†ç®¡ç†
+//¹©Ó¦ÉÌ¹ÜÀí
 void VendorMenu::display( ) const {
     system( "cls" );
-    cout << "\n\t	ä¾›åº”å•†ç®¡ç†\n\n";
-    cout << "\t	1. ä¾›åº”å•†åˆ—è¡¨\n";
-    cout << "\t	2. æŒ‰ä¾›åº”å•†åç§°æŸ¥è¯¢\n";
-    cout << "\t	3. æ·»åŠ ä¾›åº”å•†\n";
-    cout << "\t	0. è¿”å›žä¸Šä¸€çº§\n\n";
+    cout << "\n\t	¹©Ó¦ÉÌ¹ÜÀí\n\n";
+    cout << "\t	1. ¹©Ó¦ÉÌÁÐ±í\n";
+    cout << "\t	2. °´¹©Ó¦ÉÌÃû³Æ²éÑ¯\n";
+    cout << "\t	3. Ìí¼Ó¹©Ó¦ÉÌ\n";
+    cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
 
-    cout << "\t è¯·é€‰æ‹©ï¼ˆ0-3ï¼‰ï¼š";
+    cout << "\t ÇëÑ¡Ôñ£¨0-3£©£º";
 }
 
 bool VendorMenu::doChoice( int choice ) {
     switch ( choice ) {
         case 1:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         case 2:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         case 3:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         default:
-            //è¿”å›žä¸Šä¸€çº§
+            //·µ»ØÉÏÒ»¼¶
             MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
     }
     return true;
 }
 
 
-//ä¾›åº”å•†äº§å“ç®¡ç†
+//¹©Ó¦ÉÌ²úÆ·¹ÜÀí
 void ProductMenu::display( ) const {
     system( "cls" );
-    cout << "\n\t	ä¾›åº”å•†å•†å“ç®¡ç†\n\n";
-    cout << "\t	1. æŒ‰ä¾›åº”å•†æŸ¥è¯¢å•†å“åˆ—è¡¨\n";
-    cout << "\t	2. æŒ‰å•†å“åç§°æŸ¥è¯¢ä¾›åº”å•†åˆ—è¡¨\n";
-    cout << "\t	3. æ·»åŠ ä¾›åº”å•†å•†å“\n";
-    cout << "\t	0. è¿”å›žä¸Šä¸€çº§\n\n";
+    cout << "\n\t	¹©Ó¦ÉÌÉÌÆ·¹ÜÀí\n\n";
+    cout << "\t	1. °´¹©Ó¦ÉÌ²éÑ¯ÉÌÆ·ÁÐ±í\n";
+    cout << "\t	2. °´ÉÌÆ·Ãû³Æ²éÑ¯¹©Ó¦ÉÌÁÐ±í\n";
+    cout << "\t	3. Ìí¼Ó¹©Ó¦ÉÌÉÌÆ·\n";
+    cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
 
-    cout << "\t è¯·é€‰æ‹©ï¼ˆ0-3ï¼‰ï¼š";
+    cout << "\t ÇëÑ¡Ôñ£¨0-3£©£º";
 }
 
 
 bool ProductMenu::doChoice( int choice ) {
     switch ( choice ) {
         case 1:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         case 2:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         case 3:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         default:
-            //è¿”å›žä¸Šä¸€çº§
+            //·µ»ØÉÏÒ»¼¶
             MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
     }
     return true;
 }
 
-//é‡‡è´­é¡¹ç®¡ç†
+//²É¹ºÏî¹ÜÀí
 void PurchaseMenu::display( ) const {
     system( "cls" );
-    cout << "\n\t	é‡‡è´­é¡¹ç®¡ç†\n\n";
-    cout << "\t	1. é‡‡è´­é¡¹åˆ—è¡¨\n";
-    cout << "\t	2. æ–°å¢žé‡‡è´­é¡¹\n";
-    cout << "\t	0. è¿”å›žä¸Šä¸€çº§\n\n";
+    cout << "\n\t	²É¹ºÏî¹ÜÀí\n\n";
+    cout << "\t	1. ²É¹ºÏîÁÐ±í\n";
+    cout << "\t	2. ÐÂÔö²É¹ºÏî\n";
+    cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
 
-    cout << "\t è¯·é€‰æ‹©ï¼ˆ0-2ï¼‰ï¼š";
+    cout << "\t ÇëÑ¡Ôñ£¨0-2£©£º";
 }
 
 bool PurchaseMenu::doChoice( int choice ) {
     switch ( choice ) {
         case 1:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         case 2:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         case 3:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         case 0:
-            //è¿”å›žä¸Šä¸€çº§
+            //·µ»ØÉÏÒ»¼¶
             MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
     }
     return true;
 }
 
-//è¯¢ä»·ç®¡ç†
+//Ñ¯¼Û¹ÜÀí
 void InquiryMenu::display( ) const {
     system( "cls" );
-    cout << "\n\t	è¯¢ä»·ç®¡ç†\n\n";
-    cout << "\t	1. æŒ‰åç§°ç­›é€‰ä¾›åº”å•†\n";
-    cout << "\t	2. æŒ‰å•†å“åç­›é€‰ä¾›åº”å•†\n";
-    cout << "\t	3. æ–°å¢žè¯¢ä»·\n";
-    cout << "\t	4. è¯¢ä»·æ¯”è¾ƒ\n";
-    cout << "\t	0. è¿”å›žä¸Šä¸€çº§\n\n";
+    cout << "\n\t	Ñ¯¼Û¹ÜÀí\n\n";
+    cout << "\t	1. °´Ãû³ÆÉ¸Ñ¡¹©Ó¦ÉÌ\n";
+    cout << "\t	2. °´ÉÌÆ·ÃûÉ¸Ñ¡¹©Ó¦ÉÌ\n";
+    cout << "\t	3. ÐÂÔöÑ¯¼Û\n";
+    cout << "\t	4. Ñ¯¼Û±È½Ï\n";
+    cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
 
-    cout << "\t è¯·é€‰æ‹©ï¼ˆ0-4ï¼‰ï¼š";
+    cout << "\t ÇëÑ¡Ôñ£¨0-4£©£º";
 }
 
 bool InquiryMenu::doChoice( int choice ) {
     switch ( choice ) {
         case 1:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         case 2:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         case 3:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         case 4:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         default:
-            //è¿”å›žä¸Šä¸€çº§
+            //·µ»ØÉÏÒ»¼¶
             MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
     }
     return true;
 }
 
-//è®¢å•ç®¡ç†
+//¶©µ¥¹ÜÀí
 void OrderMenu::display( ) const {
     system( "cls" );
-    cout << "\n\t	è®¢å•ç®¡ç†\n\n";
-    cout << "\t	1. æ–°å¢žè®¢å•\n";
-    cout << "\t	2. æŸ¥è¯¢è®¢å•\n";
-    cout << "\t	3. è·Ÿè¸ªè®¢å•\n";
-    cout << "\t	0. è¿”å›žä¸Šä¸€çº§\n\n";
+    cout << "\n\t	¶©µ¥¹ÜÀí\n\n";
+    cout << "\t	1. ÐÂÔö¶©µ¥\n";
+    cout << "\t	2. ²éÑ¯¶©µ¥\n";
+    cout << "\t	3. ¸ú×Ù¶©µ¥\n";
+    cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
 
-    cout << "\t è¯·é€‰æ‹©ï¼ˆ0-3ï¼‰ï¼š";
+    cout << "\t ÇëÑ¡Ôñ£¨0-3£©£º";
 }
 
 bool OrderMenu::doChoice( int choice ) {
     switch ( choice ) {
         case 1:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         case 2:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         case 3:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         case 4:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         default:
-            //è¿”å›žä¸Šä¸€çº§
+            //·µ»ØÉÏÒ»¼¶
             MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
     }
     return true;
 }
 
-//ä¿¡æ¯å¯¼å‡º
+//ÐÅÏ¢µ¼³ö
 void ExportMenu::display( ) const {
     system( "cls" );
-    cout << "\n\t	ä¿¡æ¯å¯¼å‡º\n\n";
+    cout << "\n\t	ÐÅÏ¢µ¼³ö\n\n";
     cout << "\t	1. XXX\n";
     cout << "\t	2. YYY\n";
     cout << "\t	3. ZZZ\n";
-    cout << "\t	0. è¿”å›žä¸Šä¸€çº§\n\n";
+    cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
 
-    cout << "\t è¯·é€‰æ‹©ï¼ˆ0-3ï¼‰ï¼š";
+    cout << "\t ÇëÑ¡Ôñ£¨0-3£©£º";
 }
 
 bool ExportMenu::doChoice( int choice ) {
     switch ( choice ) {
         case 1:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         case 2:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         case 3:
-            // å¾…å®žçŽ°
+            // ´ýÊµÏÖ
             break;
         default:
-            //è¿”å›žä¸Šä¸€çº§
+            //·µ»ØÉÏÒ»¼¶
             MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
     }
     return true;
