@@ -8,6 +8,7 @@
 #include "../include/MenuMgr.h"
 
 void App::init( ) {
+
 }
 
 void App::run( ) {
@@ -19,4 +20,5 @@ void App::run( ) {
 }
 
 void App::term( ) {
+
 }

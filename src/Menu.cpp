@@ -7,7 +7,7 @@ using namespace std;
 #include "../include/Menu.h"
 #include "../include/MenuMgr.h"
 #include "../include/MenuType.h"
-
+#include "../include/FileExample.h"
 int Menu::selectMenuItem( ) {
     int choice = 0;
     cin >> choice;
