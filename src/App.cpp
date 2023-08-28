@@ -6,7 +6,11 @@
 #include "../include/App.h"
 #include "../include/Menu.h"
 #include "../include/MenuMgr.h"
-
+#include "../include/inquiry.h"
+#include "../include/product.h"
+#include "../include/purchase.h"
+#include "../include/vendor.h"
+#include "../include/order.h"
 void App::init( ) {
 
 }
