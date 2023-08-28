@@ -2,10 +2,10 @@
 // Created by Lenovo on 2023/8/28.
 //
 
-#include "Menu.h"
-#include "MenuMgr.h"
-#include "MenuType.h"
-#include "MenuFactory.h"
+#include "../include/Menu.h"
+#include "../include/MenuMgr.h"
+#include "../include/MenuType.h"
+#include "../include/MenuFactory.h"
 
 // 单例
 MenuMgr& MenuMgr::getInstance( ) {

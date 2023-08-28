@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.24)
 project(homework)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 11)
 
 add_executable(homework main.cpp src/App.cpp include/App.h include/MenuType.h include/MenuFactory.h src/MenuFactory.cpp src/MenuMgr.cpp include/MenuMgr.h src/Menu.cpp include/Menu.h include/FileExample.h)

@@ -1,8 +1,8 @@
 //
 // Created by Lenovo on 2023/8/28.
 //
-#include "MenuFactory.h"
-#include "Menu.h"
+#include "../include/MenuFactory.h"
+#include "../include/Menu.h"
 
 /*
 MAIN_MENU = 0,

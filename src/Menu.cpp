@@ -4,9 +4,9 @@
 
 #include <iostream>
 using namespace std;
-#include "Menu.h"
-#include "MenuMgr.h"
-#include "MenuType.h"
+#include "../include/Menu.h"
+#include "../include/MenuMgr.h"
+#include "../include/MenuType.h"
 
 int Menu::selectMenuItem( ) {
     int choice = 0;

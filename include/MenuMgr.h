@@ -14,13 +14,13 @@ public:
     static MenuMgr & getInstance( );
 protected:
     MenuMgr( );
-    ~MenuMgr( );
     MenuMgr( const MenuMgr & ) = delete;	//禁止拷贝
     MenuMgr( MenuMgr && ) = delete;			//禁止转移拷贝
     MenuMgr & operator=( const MenuMgr & ) = delete;	//禁止赋值
 public:
     // 当前活动菜单的 getter/setter
     Menu * currentMenu( ) const			{ return mCurrentMenu; }
+    ~MenuMgr();
     void   setCurrentMenu( MenuType menuType )
     { mCurrentMenu = mVctMenus[ (int)menuType ]; }
 private:

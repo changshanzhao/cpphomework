@@ -3,9 +3,9 @@
 //
 
 // App.cpp
-#include "App.h"
-#include "Menu.h"
-#include "MenuMgr.h"
+#include "../include/App.h"
+#include "../include/Menu.h"
+#include "../include/MenuMgr.h"
 
 void App::init( ) {
 }
