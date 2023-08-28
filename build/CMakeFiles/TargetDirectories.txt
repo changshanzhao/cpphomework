@@ -1,0 +1,3 @@
+/home/charliechen114514/LocalGitProject/help/help1/cpphomework/cpphomework/build/CMakeFiles/rebuild_cache.dir
+/home/charliechen114514/LocalGitProject/help/help1/cpphomework/cpphomework/build/CMakeFiles/edit_cache.dir
+/home/charliechen114514/LocalGitProject/help/help1/cpphomework/cpphomework/build/CMakeFiles/task.dir

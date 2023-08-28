@@ -2,3 +2,7 @@
 海纳,减震器,前减|油压式,适用于大型汽车|可定制
 百川,雨刷,硅胶|无骨,适用于小型汽车|可定制
 国信,雨刷,橡胶|三段式,适用于各型汽车|可定制
+haina,yushua, hh, 111
+haina,2yushua, hh, 111
+iaina,yushua, hh, 111
+iaina,2yushua, hh, 111

@@ -1,249 +1,530 @@
-//
-// Created by Lenovo on 2023/8/28.
-//
-
+// Menu.cpp
 #include <iostream>
 using namespace std;
 #include "../include/Menu.h"
 #include "../include/MenuMgr.h"
 #include "../include/MenuType.h"
 #include "../include/FileExample.h"
+
 int Menu::selectMenuItem( ) {
-    int choice = 0;
-    cin >> choice;
-    return choice;
+	int choice = 0;
+    std::fflush(stdin);
+	cin >> choice;
+	return choice;
 }
 
-void MainMenu::display( ) const {
-    system( "cls" );
-    cout << "\n\t	Ö÷²Ëµ¥\n\n";
-    cout << "\t	1. ¹©Ó¦ÉÌ¹ÜÀí\n";
-    cout << "\t	2. ¹©Ó¦ÉÌ²úÆ·¹ÜÀí\n";
-    cout << "\t	3. ²É¹ºÏî¹ÜÀí\n";
-    cout << "\t	4. Ñ¯¼Û¹ÜÀí\n";
-    cout << "\t	5. ¶©µ¥¹ÜÀí\n";
-    cout << "\t	6. ĞÅÏ¢µ¼³ö\n";
-    cout << "\t	0. ÍË³ö\n\n";
+bool Menu::process()
+{
+    display( );
+    int choice = selectMenuItem( );
+    return doChoice( choice );
+}
 
-    cout << "\t ÇëÑ¡Ôñ£¨0-6£©£º";
+
+
+void MainMenu::display( ) const {
+    // system( "cls" );
+	cout << "\n\t	ä¸»èœå•\n\n";	
+	cout << "\t	1. ä¾›åº”å•†ç®¡ç†\n";
+	cout << "\t	2. ä¾›åº”å•†äº§å“ç®¡ç†\n";
+	cout << "\t	3. é‡‡è´­é¡¹ç®¡ç†\n";
+	cout << "\t	4. è¯¢ä»·ç®¡ç†\n";
+	cout << "\t	5. è®¢å•ç®¡ç†\n";
+	cout << "\t	6. ä¿¡æ¯å¯¼å‡º\n";
+	cout << "\t	0. é€€å‡º\n\n";
+
+	cout << "\t è¯·é€‰æ‹©ï¼ˆ0-6ï¼‰ï¼š";
 }
 
 bool MainMenu::doChoice( int choice ) {
-    switch ( choice ) {
-        case 0:
-            return false;  //ÍË³öÖÕÖ¹
-        case 1:
-            //×ªµ½¹©Ó¦ÉÌ¹ÜÀí²Ëµ¥
-            MenuMgr::getInstance( ).setCurrentMenu( MenuType::VENDOR_MENU );
-            break;
-        case 2:
-            //×ªµ½¹©Ó¦ÉÌÉÌÆ·²Ëµ¥
-            MenuMgr::getInstance( ).setCurrentMenu( MenuType::PRODUCT_MENU );
-            break;
-        case 3:
-            //×ªµ½²É¹ºÏî²Ëµ¥
-            MenuMgr::getInstance( ).setCurrentMenu( MenuType::PURCHASE_MENU );
-            break;
-        case 4:
-            //×ªµ½Ñ¯¼Û²Ëµ¥
-            MenuMgr::getInstance( ).setCurrentMenu( MenuType::INQUIRY_MENU );
-            break;
-        case 5:
-            //×ªµ½¶©µ¥²Ëµ¥
-            MenuMgr::getInstance( ).setCurrentMenu( MenuType::ORDER_MENU );
-            break;
-        case 6:
-            //×ªµ½µ¼³ö²Ëµ¥
-            MenuMgr::getInstance( ).setCurrentMenu( MenuType::EXPORT_MENU );
-            break;
-    }
-    return true;
+	switch ( choice ) {
+	case 0:
+		return false;  //é€€å‡ºç»ˆæ­¢
+	case 1:
+		//è½¬åˆ°ä¾›åº”å•†ç®¡ç†èœå•
+		MenuMgr::getInstance( ).setCurrentMenu( MenuType::VENDOR_MENU );
+		break;
+	case 2:
+		//è½¬åˆ°ä¾›åº”å•†å•†å“èœå•
+		MenuMgr::getInstance( ).setCurrentMenu( MenuType::PRODUCT_MENU );
+		break;
+	case 3:
+		//è½¬åˆ°é‡‡è´­é¡¹èœå•
+		MenuMgr::getInstance( ).setCurrentMenu( MenuType::PURCHASE_MENU );
+		break;
+	case 4:
+		//è½¬åˆ°è¯¢ä»·èœå•
+		MenuMgr::getInstance( ).setCurrentMenu( MenuType::INQUIRY_MENU );
+		break;
+	case 5:
+		//è½¬åˆ°è®¢å•èœå•
+		MenuMgr::getInstance( ).setCurrentMenu( MenuType::ORDER_MENU );
+		break;
+	case 6:
+		//è½¬åˆ°å¯¼å‡ºèœå•
+		MenuMgr::getInstance( ).setCurrentMenu( MenuType::EXPORT_MENU );
+		break;
+	}
+	return true;
 }
 
-//¹©Ó¦ÉÌ¹ÜÀí
+
+
+
+//ä¾›åº”å•†ç®¡ç†
 void VendorMenu::display( ) const {
-    system( "cls" );
-    cout << "\n\t	¹©Ó¦ÉÌ¹ÜÀí\n\n";
-    cout << "\t	1. ¹©Ó¦ÉÌÁĞ±í\n";
-    cout << "\t	2. °´¹©Ó¦ÉÌÃû³Æ²éÑ¯\n";
-    cout << "\t	3. Ìí¼Ó¹©Ó¦ÉÌ\n";
-    cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
+	cout << "\n\t	ä¾›åº”å•†ç®¡ç†\n\n";
+	cout << "\t	1. ä¾›åº”å•†åˆ—è¡¨\n";
+	cout << "\t	2. æŒ‰ä¾›åº”å•†åç§°æŸ¥è¯¢\n";
+	cout << "\t	3. æ·»åŠ ä¾›åº”å•†\n";
+	cout << "\t	0. è¿”å›ä¸Šä¸€çº§\n\n";
 
-    cout << "\t ÇëÑ¡Ôñ£¨0-3£©£º";
+	cout << "\t è¯·é€‰æ‹©ï¼ˆ0-3ï¼‰ï¼š";
 }
+
+
+
 
 bool VendorMenu::doChoice( int choice ) {
-    switch ( choice ) {
-        case 1:
-            // ´ıÊµÏÖ
-            break;
-        case 2:
-            // ´ıÊµÏÖ
-            break;
-        case 3:
-            // ´ıÊµÏÖ
-            break;
-        default:
-            //·µ»ØÉÏÒ»¼¶
-            MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
+	switch ( choice ) {	
+	case 1:
+		data.showAppVendor();
+		break;
+	case 2:
+    {
+        int findTol = 0;
+        string checkedName;
+        std::cout << "è¾“å…¥ä¾›åº”å•†åç§°:> ";
+        std::cin >> checkedName;
+        std::cout << "---------checked-----------" << std::endl;
+        for (Vendor vendor: data.appVendor) {
+            if (vendor.compareName(checkedName)) {
+                vendor.showVendorInfo();
+                findTol++;
+            }
+        }
+        if(findTol == 0){
+            MSG("Can not find any targeted!");
+        }
+        std::cout << "---------finished!-----------" << std::endl;
+        break;
     }
-    return true;
+	case 3:
+    {
+        MSG("è¯·è¾“å…¥ä¾›åº”å•†ä¿¡æ¯ï¼Œä¸€è¡Œä¸€ä¿¡æ¯é¡¹ç›®:> ");
+        std::vector<string> listInfo;
+        for(int i = 0; i < vendorPropertyCount; i++)
+        {
+            string sig;
+            std::cin >> sig;
+            if(sig.empty()){
+                i--;
+                MSG("ä¿¡æ¯éæ³•ï¼:>");
+                MSG(sig);
+            }
+
+            listInfo.push_back(sig);
+        }
+        MSG("ç»“æŸå½•å…¥ï¼");
+        // fflusher in ALL Compilers
+        char c;
+        while ((c = getchar()) != '\n');
+        data.appVendor.push_back(Vendor(
+                listInfo[static_cast<int>(VendorArrayOffset::NAME)],
+                listInfo[static_cast<int>(VendorArrayOffset::ADDR)],
+                listInfo[static_cast<int>(VendorArrayOffset::TYPE)],
+                listInfo[static_cast<int>(VendorArrayOffset::PEO)],
+                listInfo[static_cast<int>(VendorArrayOffset::PEO_PHONE)],
+                listInfo[static_cast<int>(VendorArrayOffset::POS)],
+                listInfo[static_cast<int>(VendorArrayOffset::LEVEL)]
+                ));
+        data.showAppVendor();
+    }break;
+	default:
+		//è¿”å›ä¸Šä¸€çº§
+		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
+	}
+	return true;
 }
 
 
-//¹©Ó¦ÉÌ²úÆ·¹ÜÀí
+//ä¾›åº”å•†äº§å“ç®¡ç†
 void ProductMenu::display( ) const {
-    system( "cls" );
-    cout << "\n\t	¹©Ó¦ÉÌÉÌÆ·¹ÜÀí\n\n";
-    cout << "\t	1. °´¹©Ó¦ÉÌ²éÑ¯ÉÌÆ·ÁĞ±í\n";
-    cout << "\t	2. °´ÉÌÆ·Ãû³Æ²éÑ¯¹©Ó¦ÉÌÁĞ±í\n";
-    cout << "\t	3. Ìí¼Ó¹©Ó¦ÉÌÉÌÆ·\n";
-    cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
+	cout << "\n\t	ä¾›åº”å•†å•†å“ç®¡ç†\n\n";
+	cout << "\t	1. æŒ‰ä¾›åº”å•†æŸ¥è¯¢å•†å“åˆ—è¡¨\n";
+	cout << "\t	2. æŒ‰å•†å“åç§°æŸ¥è¯¢ä¾›åº”å•†åˆ—è¡¨\n";
+	cout << "\t	3. æ·»åŠ ä¾›åº”å•†å•†å“\n";
+	cout << "\t	0. è¿”å›ä¸Šä¸€çº§\n\n";
 
-    cout << "\t ÇëÑ¡Ôñ£¨0-3£©£º";
+	cout << "\t è¯·é€‰æ‹©ï¼ˆ0-3ï¼‰ï¼š";
 }
 
 
 bool ProductMenu::doChoice( int choice ) {
-    switch ( choice ) {
-        case 1:
-            // ´ıÊµÏÖ
-            break;
-        case 2:
-            // ´ıÊµÏÖ
-            break;
-        case 3:
-            // ´ıÊµÏÖ
-            break;
-        default:
-            //·µ»ØÉÏÒ»¼¶
-            MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
+	switch ( choice ) {
+	case 1: {
+        int findTarget = 0;
+        std::string vendorName;
+        MSG("è¾“å…¥ä¾›åº”å•†åç§°:> ");
+        std::cin >>vendorName;
+        MSG("---------------------------checked----------------------------");
+        for(Product tmp : data.appProduct)
+        {
+            if(tmp.compareVName(vendorName)){
+                tmp.showProductInfo();
+                findTarget++;
+            }
+        }
+        if(findTarget == 0){
+            MSG("Do not find any target");
+        }
+        MSG("---------------------------finished----------------------------");
     }
-    return true;
+		break;
+	case 2:
+    {
+        int findTarget = 0;
+        std::string productName;
+        MSG("è¾“å…¥å•†å“åç§°:> ");
+        std::cin >>productName;
+        MSG("---------------------------checked----------------------------");
+        for(Product tmp : data.appProduct)
+        {
+            if(tmp.comparePName(productName)){
+                tmp.showProductInfo();
+                findTarget++;
+            }
+        }
+        if(findTarget == 0){
+            MSG("Do not find any target");
+        }
+        MSG("---------------------------finished----------------------------");
+    }
+		break;
+	case 3:
+    {
+        MSG("è¯·è¾“å…¥å•†å“ä¿¡æ¯ï¼Œä¸€è¡Œä¸€ä¿¡æ¯é¡¹ç›®:> ");
+        std::vector<string> listInfo;
+        for(int i = 0; i < productPropertyCount; i++)
+        {
+            string sig;
+            std::cin >> sig;
+            if(sig.empty()){
+                i--;
+                MSG("ä¿¡æ¯éæ³•ï¼:>");
+                MSG(sig);
+            }
+            listInfo.push_back(sig);
+        }
+        MSG("ç»“æŸå½•å…¥ï¼");
+        getchar();
+        data.appProduct.push_back
+        (
+                Product
+                (
+                        listInfo[static_cast<int>(ProductArrayOffSet::V_NAME)],
+                        listInfo[static_cast<int>(ProductArrayOffSet::P_NAME)],
+                        listInfo[static_cast<int>(ProductArrayOffSet::TYPE)],
+                        listInfo[static_cast<int>(ProductArrayOffSet::INFO)]
+                )
+        );
+    }
+    break;
+	default:
+		//è¿”å›ä¸Šä¸€çº§
+		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
+	}
+	return true;
 }
 
-//²É¹ºÏî¹ÜÀí
+//é‡‡è´­é¡¹ç®¡ç†
 void PurchaseMenu::display( ) const {
-    system( "cls" );
-    cout << "\n\t	²É¹ºÏî¹ÜÀí\n\n";
-    cout << "\t	1. ²É¹ºÏîÁĞ±í\n";
-    cout << "\t	2. ĞÂÔö²É¹ºÏî\n";
-    cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
-
-    cout << "\t ÇëÑ¡Ôñ£¨0-2£©£º";
+	cout << "\n\t	é‡‡è´­é¡¹ç®¡ç†\n\n";
+	cout << "\t	1. é‡‡è´­é¡¹åˆ—è¡¨\n";
+	cout << "\t	2. æ–°å¢é‡‡è´­é¡¹\n";
+	cout << "\t	0. è¿”å›ä¸Šä¸€çº§\n\n";
+	cout << "\t è¯·é€‰æ‹©ï¼ˆ0-2ï¼‰ï¼š";
 }
 
 bool PurchaseMenu::doChoice( int choice ) {
-    switch ( choice ) {
-        case 1:
-            // ´ıÊµÏÖ
-            break;
-        case 2:
-            // ´ıÊµÏÖ
-            break;
-        case 3:
-            // ´ıÊµÏÖ
-            break;
-        case 0:
-            //·µ»ØÉÏÒ»¼¶
-            MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
-    }
-    return true;
+	switch ( choice ) {
+	case 1:
+        data.showAppPurchase();
+		break;
+	case 2:
+    {
+        MSG("è¯·è¾“å…¥é‡‡è´­ä¿¡æ¯ï¼Œä¸€è¡Œä¸€ä¿¡æ¯é¡¹ç›®:> ");
+        std::vector<string> listInfo;
+        for(int i = 0; i < purchasePropertyCount; i++)
+        {
+            string sig;
+            std::cin >> sig;
+            if(sig.empty()){
+                i--;
+                MSG("ä¿¡æ¯éæ³•ï¼:>");
+                MSG(sig);
+            }
+            listInfo.push_back(sig);
+        }
+        MSG("ç»“æŸå½•å…¥ï¼");
+        getchar();
+        data.appPurchase.push_back(
+             Purchase
+             (
+                     listInfo[static_cast<int>(PurchaseArrayOffSet::ID)],
+                     listInfo[static_cast<int>(PurchaseArrayOffSet::NAME)],
+                     listInfo[static_cast<int>(PurchaseArrayOffSet::NUM)],
+                     listInfo[static_cast<int>(PurchaseArrayOffSet::TYPE)],
+                     listInfo[static_cast<int>(PurchaseArrayOffSet::REQUEST)]
+
+             )
+        );
+    }break;
+	case 0:
+		//è¿”å›ä¸Šä¸€çº§
+		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
+	}
+	return true;
 }
 
-//Ñ¯¼Û¹ÜÀí
+//è¯¢ä»·ç®¡ç†
 void InquiryMenu::display( ) const {
-    system( "cls" );
-    cout << "\n\t	Ñ¯¼Û¹ÜÀí\n\n";
-    cout << "\t	1. °´Ãû³ÆÉ¸Ñ¡¹©Ó¦ÉÌ\n";
-    cout << "\t	2. °´ÉÌÆ·ÃûÉ¸Ñ¡¹©Ó¦ÉÌ\n";
-    cout << "\t	3. ĞÂÔöÑ¯¼Û\n";
-    cout << "\t	4. Ñ¯¼Û±È½Ï\n";
-    cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
+	cout << "\n\t	è¯¢ä»·ç®¡ç†\n\n";
+	cout << "\t	1. æŒ‰åç§°ç­›é€‰ä¾›åº”å•†\n";
+	cout << "\t	2. æŒ‰å•†å“åç­›é€‰ä¾›åº”å•†\n";
+	cout << "\t	3. æ–°å¢è¯¢ä»·\n";
+	cout << "\t	4. è¯¢ä»·æ¯”è¾ƒ\n";
+	cout << "\t	0. è¿”å›ä¸Šä¸€çº§\n\n";
 
-    cout << "\t ÇëÑ¡Ôñ£¨0-4£©£º";
+	cout << "\t è¯·é€‰æ‹©ï¼ˆ0-4ï¼‰ï¼š";
 }
 
 bool InquiryMenu::doChoice( int choice ) {
-    switch ( choice ) {
-        case 1:
-            // ´ıÊµÏÖ
-            break;
-        case 2:
-            // ´ıÊµÏÖ
-            break;
-        case 3:
-            // ´ıÊµÏÖ
-            break;
-        case 4:
-            // ´ıÊµÏÖ
-            break;
-        default:
-            //·µ»ØÉÏÒ»¼¶
-            MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
+	switch ( choice ) {
+	case 1:
+    {
+        int findTarget = 0;
+        std::string VendorName;
+        MSG("è¾“å…¥åç§°:> ");
+        std::cin >> VendorName;
+        MSG("---------------------------checked----------------------------");
+        for(Inquiry tmp : data.appInquiry)
+        {
+            if(tmp.compareVName(VendorName)){
+                tmp.showInquiryInfo();
+                findTarget++;
+            }
+        }
+        if(findTarget == 0){
+            MSG("Do not find any target");
+        }
+        MSG("---------------------------finished----------------------------");
     }
-    return true;
+		break;
+	case 2:
+    {
+        int findTarget = 0;
+        std::string productName;
+        MSG("è¾“å…¥å•†å“åç§°:> ");
+        std::cin >>productName;
+        MSG("---------------------------checked----------------------------");
+        for(Inquiry tmp : data.appInquiry)
+        {
+            if(tmp.compareProductName(productName)){
+                tmp.showInquiryInfo();
+                findTarget++;
+            }
+        }
+        if(findTarget == 0){
+            MSG("Do not find any target");
+        }
+        MSG("---------------------------finished----------------------------");
+    }
+		break;
+	case 3:
+    {
+        MSG("è¯·è¾“å…¥è¯¢ä»·ä¿¡æ¯ï¼Œä¸€è¡Œä¸€ä¿¡æ¯é¡¹ç›®:> ");
+        std::vector<string> listInfo;
+        for(int i = 0; i < inquiryPropertyCount; i++)
+        {
+            string sig;
+            std::cin >> sig;
+            if(sig.empty()){
+                i--;
+                MSG("ä¿¡æ¯éæ³•ï¼:>");
+                MSG(sig);
+            }
+            listInfo.push_back(sig);
+        }
+        MSG("ç»“æŸå½•å…¥ï¼");
+        getchar();
+        data.appInquiry.push_back(
+                Inquiry(
+                        listInfo[static_cast<int>(InquiryArrayOffSet::ID)],
+                        listInfo[static_cast<int>(InquiryArrayOffSet::V_NAME)],
+                        listInfo[static_cast<int>(InquiryArrayOffSet::PRODUCT)],
+                        listInfo[static_cast<int>(InquiryArrayOffSet::TYPE)],
+                        listInfo[static_cast<int>(InquiryArrayOffSet::INFO)],
+                        listInfo[static_cast<int>(InquiryArrayOffSet::MONEY)],
+                        listInfo[static_cast<int>(InquiryArrayOffSet::M_INFO)],
+                        listInfo[static_cast<int>(InquiryArrayOffSet::EVALUATE)],
+                        listInfo[static_cast<int>(InquiryArrayOffSet::LEVEL)]
+                        )
+        );
+    }
+		break;
+	case 4:
+    {
+        int findTarget = 0;
+        std::string ID;
+        MSG("è¾“å…¥åç§°:> ");
+        std::cin >> ID;
+        MSG("---------------------------checked----------------------------");
+        for(Inquiry tmp : data.appInquiry)
+        {
+            if(tmp.compareID(ID)){
+                tmp.showInquiryInfo();
+                findTarget++;
+            }
+        }
+        if(findTarget == 0){
+            MSG("Do not find any target");
+        }
+        MSG("---------------------------finished----------------------------");
+    }
+		break;
+	default:
+		//è¿”å›ä¸Šä¸€çº§
+		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
+	}
+	return true;
 }
 
-//¶©µ¥¹ÜÀí
+//è®¢å•ç®¡ç†
 void OrderMenu::display( ) const {
-    system( "cls" );
-    cout << "\n\t	¶©µ¥¹ÜÀí\n\n";
-    cout << "\t	1. ĞÂÔö¶©µ¥\n";
-    cout << "\t	2. ²éÑ¯¶©µ¥\n";
-    cout << "\t	3. ¸ú×Ù¶©µ¥\n";
-    cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
+	cout << "\n\t	è®¢å•ç®¡ç†\n\n";
+	cout << "\t	1. æ–°å¢è®¢å•\n";
+	cout << "\t	2. æŸ¥è¯¢è®¢å•\n";
+	cout << "\t	3. è·Ÿè¸ªè®¢å•\n";
+	cout << "\t	0. è¿”å›ä¸Šä¸€çº§\n\n";
 
-    cout << "\t ÇëÑ¡Ôñ£¨0-3£©£º";
+	cout << "\t è¯·é€‰æ‹©ï¼ˆ0-3ï¼‰ï¼š";
 }
 
 bool OrderMenu::doChoice( int choice ) {
-    switch ( choice ) {
-        case 1:
-            // ´ıÊµÏÖ
-            break;
-        case 2:
-            // ´ıÊµÏÖ
-            break;
-        case 3:
-            // ´ıÊµÏÖ
-            break;
-        case 4:
-            // ´ıÊµÏÖ
-            break;
-        default:
-            //·µ»ØÉÏÒ»¼¶
-            MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
+	switch ( choice ) {
+	case 1:
+    {
+        MSG("è¯·è¾“å…¥è®¢å•ä¿¡æ¯ï¼Œä¸€è¡Œä¸€ä¿¡æ¯é¡¹ç›®:> ");
+        std::vector<string> listInfo;
+        for(int i = 0; i < orderPropertyCount; i++)
+        {
+            string sig;
+            std::cin >> sig;
+            if(sig.empty()){
+                i--;
+                MSG("ä¿¡æ¯éæ³•ï¼:>");
+                MSG(sig);
+            }
+            listInfo.push_back(sig);
+        }
+        MSG("ç»“æŸå½•å…¥ï¼");
+        getchar();
+        data.appOrder.push_back(
+            Order(
+              listInfo[static_cast<int>(OrderArrayOffSet::ID)],
+              listInfo[static_cast<int>(OrderArrayOffSet::V_NAME)],
+              listInfo[static_cast<int>(OrderArrayOffSet::PRODUCT)],
+              listInfo[static_cast<int>(OrderArrayOffSet::TYPE)],
+              listInfo[static_cast<int>(OrderArrayOffSet::MONEY)],
+              listInfo[static_cast<int>(OrderArrayOffSet::UNIT)],
+              listInfo[static_cast<int>(OrderArrayOffSet::NUM)],
+              listInfo[static_cast<int>(OrderArrayOffSet::TOTAL_MONEY)],
+              listInfo[static_cast<int>(OrderArrayOffSet::REQUEST)]
+            )
+        );
     }
-    return true;
+		break;
+	case 2:
+    {
+        int findTarget = 0;
+        std::string ID;
+        MSG("è¾“å…¥ID:> ");
+        std::cin >> ID;
+        MSG("---------------------------checked----------------------------");
+        for(Order tmp : data.appOrder)
+        {
+            if(tmp.compareID(ID)){
+                tmp.showOrderQuery();
+                findTarget++;
+            }
+        }
+        if(findTarget == 0){
+            MSG("Do not find any target");
+        }
+        MSG("---------------------------finished----------------------------");
+    }
+		break;
+	case 3:
+    {
+        int findTarget = 0;
+        std::string ID;
+        MSG("è¾“å…¥ID:> ");
+        std::cin >> ID;
+        MSG("---------------------------checked----------------------------");
+        for(Order tmp : data.appOrder)
+        {
+            if(tmp.compareID(ID)){
+                tmp.showOrderInfo();
+                findTarget++;
+            }
+        }
+        if(findTarget == 0){
+            MSG("Do not find any target");
+        }
+        MSG("---------------------------finished----------------------------");
+    }
+		break;
+	default:
+		//è¿”å›ä¸Šä¸€çº§
+		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
+	}
+	return true;
 }
 
-//ĞÅÏ¢µ¼³ö
+//ä¿¡æ¯å¯¼å‡º
 void ExportMenu::display( ) const {
-    system( "cls" );
-    cout << "\n\t	ĞÅÏ¢µ¼³ö\n\n";
-    cout << "\t	1. XXX\n";
-    cout << "\t	2. YYY\n";
-    cout << "\t	3. ZZZ\n";
-    cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
+	cout << "\n\t	ä¿¡æ¯å¯¼å‡º\n\n";
+	cout << "\t	1. ä¾›åº”å•†åˆ—è¡¨\n";
+	cout << "\t	2. å•†å“åˆ—è¡¨\n";
+	cout << "\t	3. é‡‡é›†å•åˆ—è¡¨\n";
+    cout << "\t	4. è¯¢ä»·åˆ—è¡¨\n";
+    cout << "\t	5. è®¢å•åˆ—è¡¨\n";
+	cout << "\t	0. è¿”å›ä¸Šä¸€çº§\n\n";
 
-    cout << "\t ÇëÑ¡Ôñ£¨0-3£©£º";
+	cout << "\t è¯·é€‰æ‹©ï¼ˆ0-3ï¼‰ï¼š";
 }
 
 bool ExportMenu::doChoice( int choice ) {
-    switch ( choice ) {
-        case 1:
-            // ´ıÊµÏÖ
+	switch ( choice ) {
+	case 1:
+		data.exportLists(DataSectionOffSet::VENDOR);
+		break;
+	case 2:
+        data.exportLists(DataSectionOffSet::PRODUCT);
+		break;
+	case 3:
+        data.exportLists(DataSectionOffSet::PURCHASE);
+		break;
+    case 4:
+            data.exportLists(DataSectionOffSet::INQUIRY);
             break;
-        case 2:
-            // ´ıÊµÏÖ
+    case 5:
+            data.exportLists(DataSectionOffSet::ORDER);
             break;
-        case 3:
-            // ´ıÊµÏÖ
-            break;
-        default:
-            //·µ»ØÉÏÒ»¼¶
-            MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
-    }
-    return true;
+	default:
+		//è¿”å›ä¸Šä¸€çº§
+		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
+	}
+	return true;
 }
