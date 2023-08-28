@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named homework
+# Target rules for targets named task
 
 # Build rule for target.
-homework: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 homework
-.PHONY : homework
+task: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 task
+.PHONY : task
 
 # fast build rule for target.
-homework/fast:
-	$(MAKE) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/build
-.PHONY : homework/fast
+task/fast:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/build
+.PHONY : task/fast
 
 main.o: main.cpp.o
 
@@ -129,7 +129,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -138,7 +138,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -147,7 +147,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 src/App.o: src/App.cpp.o
@@ -156,7 +156,7 @@ src/App.o: src/App.cpp.o
 
 # target to build an object file
 src/App.cpp.o:
-	$(MAKE) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/src/App.cpp.o
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/App.cpp.o
 .PHONY : src/App.cpp.o
 
 src/App.i: src/App.cpp.i
@@ -165,7 +165,7 @@ src/App.i: src/App.cpp.i
 
 # target to preprocess a source file
 src/App.cpp.i:
-	$(MAKE) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/src/App.cpp.i
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/App.cpp.i
 .PHONY : src/App.cpp.i
 
 src/App.s: src/App.cpp.s
@@ -174,8 +174,35 @@ src/App.s: src/App.cpp.s
 
 # target to generate assembly for a file
 src/App.cpp.s:
-	$(MAKE) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/src/App.cpp.s
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/App.cpp.s
 .PHONY : src/App.cpp.s
+
+src/Data.o: src/Data.cpp.o
+
+.PHONY : src/Data.o
+
+# target to build an object file
+src/Data.cpp.o:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/Data.cpp.o
+.PHONY : src/Data.cpp.o
+
+src/Data.i: src/Data.cpp.i
+
+.PHONY : src/Data.i
+
+# target to preprocess a source file
+src/Data.cpp.i:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/Data.cpp.i
+.PHONY : src/Data.cpp.i
+
+src/Data.s: src/Data.cpp.s
+
+.PHONY : src/Data.s
+
+# target to generate assembly for a file
+src/Data.cpp.s:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/Data.cpp.s
+.PHONY : src/Data.cpp.s
 
 src/Menu.o: src/Menu.cpp.o
 
@@ -183,7 +210,7 @@ src/Menu.o: src/Menu.cpp.o
 
 # target to build an object file
 src/Menu.cpp.o:
-	$(MAKE) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/src/Menu.cpp.o
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/Menu.cpp.o
 .PHONY : src/Menu.cpp.o
 
 src/Menu.i: src/Menu.cpp.i
@@ -192,7 +219,7 @@ src/Menu.i: src/Menu.cpp.i
 
 # target to preprocess a source file
 src/Menu.cpp.i:
-	$(MAKE) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/src/Menu.cpp.i
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/Menu.cpp.i
 .PHONY : src/Menu.cpp.i
 
 src/Menu.s: src/Menu.cpp.s
@@ -201,7 +228,7 @@ src/Menu.s: src/Menu.cpp.s
 
 # target to generate assembly for a file
 src/Menu.cpp.s:
-	$(MAKE) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/src/Menu.cpp.s
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/Menu.cpp.s
 .PHONY : src/Menu.cpp.s
 
 src/MenuFactory.o: src/MenuFactory.cpp.o
@@ -210,7 +237,7 @@ src/MenuFactory.o: src/MenuFactory.cpp.o
 
 # target to build an object file
 src/MenuFactory.cpp.o:
-	$(MAKE) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/src/MenuFactory.cpp.o
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/MenuFactory.cpp.o
 .PHONY : src/MenuFactory.cpp.o
 
 src/MenuFactory.i: src/MenuFactory.cpp.i
@@ -219,7 +246,7 @@ src/MenuFactory.i: src/MenuFactory.cpp.i
 
 # target to preprocess a source file
 src/MenuFactory.cpp.i:
-	$(MAKE) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/src/MenuFactory.cpp.i
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/MenuFactory.cpp.i
 .PHONY : src/MenuFactory.cpp.i
 
 src/MenuFactory.s: src/MenuFactory.cpp.s
@@ -228,7 +255,7 @@ src/MenuFactory.s: src/MenuFactory.cpp.s
 
 # target to generate assembly for a file
 src/MenuFactory.cpp.s:
-	$(MAKE) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/src/MenuFactory.cpp.s
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/MenuFactory.cpp.s
 .PHONY : src/MenuFactory.cpp.s
 
 src/MenuMgr.o: src/MenuMgr.cpp.o
@@ -237,7 +264,7 @@ src/MenuMgr.o: src/MenuMgr.cpp.o
 
 # target to build an object file
 src/MenuMgr.cpp.o:
-	$(MAKE) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/src/MenuMgr.cpp.o
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/MenuMgr.cpp.o
 .PHONY : src/MenuMgr.cpp.o
 
 src/MenuMgr.i: src/MenuMgr.cpp.i
@@ -246,7 +273,7 @@ src/MenuMgr.i: src/MenuMgr.cpp.i
 
 # target to preprocess a source file
 src/MenuMgr.cpp.i:
-	$(MAKE) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/src/MenuMgr.cpp.i
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/MenuMgr.cpp.i
 .PHONY : src/MenuMgr.cpp.i
 
 src/MenuMgr.s: src/MenuMgr.cpp.s
@@ -255,8 +282,143 @@ src/MenuMgr.s: src/MenuMgr.cpp.s
 
 # target to generate assembly for a file
 src/MenuMgr.cpp.s:
-	$(MAKE) -f CMakeFiles/homework.dir/build.make CMakeFiles/homework.dir/src/MenuMgr.cpp.s
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/MenuMgr.cpp.s
 .PHONY : src/MenuMgr.cpp.s
+
+src/inquiry.o: src/inquiry.cpp.o
+
+.PHONY : src/inquiry.o
+
+# target to build an object file
+src/inquiry.cpp.o:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/inquiry.cpp.o
+.PHONY : src/inquiry.cpp.o
+
+src/inquiry.i: src/inquiry.cpp.i
+
+.PHONY : src/inquiry.i
+
+# target to preprocess a source file
+src/inquiry.cpp.i:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/inquiry.cpp.i
+.PHONY : src/inquiry.cpp.i
+
+src/inquiry.s: src/inquiry.cpp.s
+
+.PHONY : src/inquiry.s
+
+# target to generate assembly for a file
+src/inquiry.cpp.s:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/inquiry.cpp.s
+.PHONY : src/inquiry.cpp.s
+
+src/order.o: src/order.cpp.o
+
+.PHONY : src/order.o
+
+# target to build an object file
+src/order.cpp.o:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/order.cpp.o
+.PHONY : src/order.cpp.o
+
+src/order.i: src/order.cpp.i
+
+.PHONY : src/order.i
+
+# target to preprocess a source file
+src/order.cpp.i:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/order.cpp.i
+.PHONY : src/order.cpp.i
+
+src/order.s: src/order.cpp.s
+
+.PHONY : src/order.s
+
+# target to generate assembly for a file
+src/order.cpp.s:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/order.cpp.s
+.PHONY : src/order.cpp.s
+
+src/product.o: src/product.cpp.o
+
+.PHONY : src/product.o
+
+# target to build an object file
+src/product.cpp.o:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/product.cpp.o
+.PHONY : src/product.cpp.o
+
+src/product.i: src/product.cpp.i
+
+.PHONY : src/product.i
+
+# target to preprocess a source file
+src/product.cpp.i:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/product.cpp.i
+.PHONY : src/product.cpp.i
+
+src/product.s: src/product.cpp.s
+
+.PHONY : src/product.s
+
+# target to generate assembly for a file
+src/product.cpp.s:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/product.cpp.s
+.PHONY : src/product.cpp.s
+
+src/purchase.o: src/purchase.cpp.o
+
+.PHONY : src/purchase.o
+
+# target to build an object file
+src/purchase.cpp.o:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/purchase.cpp.o
+.PHONY : src/purchase.cpp.o
+
+src/purchase.i: src/purchase.cpp.i
+
+.PHONY : src/purchase.i
+
+# target to preprocess a source file
+src/purchase.cpp.i:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/purchase.cpp.i
+.PHONY : src/purchase.cpp.i
+
+src/purchase.s: src/purchase.cpp.s
+
+.PHONY : src/purchase.s
+
+# target to generate assembly for a file
+src/purchase.cpp.s:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/purchase.cpp.s
+.PHONY : src/purchase.cpp.s
+
+src/vendor.o: src/vendor.cpp.o
+
+.PHONY : src/vendor.o
+
+# target to build an object file
+src/vendor.cpp.o:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/vendor.cpp.o
+.PHONY : src/vendor.cpp.o
+
+src/vendor.i: src/vendor.cpp.i
+
+.PHONY : src/vendor.i
+
+# target to preprocess a source file
+src/vendor.cpp.i:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/vendor.cpp.i
+.PHONY : src/vendor.cpp.i
+
+src/vendor.s: src/vendor.cpp.s
+
+.PHONY : src/vendor.s
+
+# target to generate assembly for a file
+src/vendor.cpp.s:
+	$(MAKE) -f CMakeFiles/task.dir/build.make CMakeFiles/task.dir/src/vendor.cpp.s
+.PHONY : src/vendor.cpp.s
 
 # Help Target
 help:
@@ -266,13 +428,16 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... homework"
+	@echo "... task"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
 	@echo "... src/App.o"
 	@echo "... src/App.i"
 	@echo "... src/App.s"
+	@echo "... src/Data.o"
+	@echo "... src/Data.i"
+	@echo "... src/Data.s"
 	@echo "... src/Menu.o"
 	@echo "... src/Menu.i"
 	@echo "... src/Menu.s"
@@ -282,6 +447,21 @@ help:
 	@echo "... src/MenuMgr.o"
 	@echo "... src/MenuMgr.i"
 	@echo "... src/MenuMgr.s"
+	@echo "... src/inquiry.o"
+	@echo "... src/inquiry.i"
+	@echo "... src/inquiry.s"
+	@echo "... src/order.o"
+	@echo "... src/order.i"
+	@echo "... src/order.s"
+	@echo "... src/product.o"
+	@echo "... src/product.i"
+	@echo "... src/product.s"
+	@echo "... src/purchase.o"
+	@echo "... src/purchase.i"
+	@echo "... src/purchase.s"
+	@echo "... src/vendor.o"
+	@echo "... src/vendor.i"
+	@echo "... src/vendor.s"
 .PHONY : help
 
 

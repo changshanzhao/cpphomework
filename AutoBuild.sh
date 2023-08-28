@@ -1,4 +1,5 @@
 cd build
+sudo rm rf ./*
 cmake ..
 make
-./homework
+./task

@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/charliechen114514/LocalGitProject/help/help1/cpphomework/cpphomework/src/Menu.cpp" "/home/charliechen114514/LocalGitProject/help/help1/cpphomework/cpphomework/build/CMakeFiles/homework.dir/src/Menu.cpp.o"
   "/home/charliechen114514/LocalGitProject/help/help1/cpphomework/cpphomework/src/MenuFactory.cpp" "/home/charliechen114514/LocalGitProject/help/help1/cpphomework/cpphomework/build/CMakeFiles/homework.dir/src/MenuFactory.cpp.o"
   "/home/charliechen114514/LocalGitProject/help/help1/cpphomework/cpphomework/src/MenuMgr.cpp" "/home/charliechen114514/LocalGitProject/help/help1/cpphomework/cpphomework/build/CMakeFiles/homework.dir/src/MenuMgr.cpp.o"
+  "/home/charliechen114514/LocalGitProject/help/help1/cpphomework/cpphomework/src/vendor.cpp" "/home/charliechen114514/LocalGitProject/help/help1/cpphomework/cpphomework/build/CMakeFiles/homework.dir/src/vendor.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

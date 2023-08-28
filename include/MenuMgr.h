@@ -22,7 +22,10 @@ public:
     Menu * currentMenu( ) const			{ return mCurrentMenu; }
     ~MenuMgr();
     void   setCurrentMenu( MenuType menuType )
-    { mCurrentMenu = mVctMenus[ (int)menuType ]; }
+    {
+        system("cls");
+        mCurrentMenu = mVctMenus[ (int)menuType ];
+    }
 private:
     std::vector<Menu *>	mVctMenus = {}; //全部菜单集合
     Menu * mCurrentMenu = nullptr;	//活动菜单

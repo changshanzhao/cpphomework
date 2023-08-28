@@ -4,6 +4,9 @@
 
 #ifndef HOMEWORK_MENU_H
 #define HOMEWORK_MENU_H
+
+#include "Utils.h"
+#include "Data.h"
 // 抽象菜单
 class Menu {
 public:
@@ -26,6 +29,7 @@ class VendorMenu :public Menu {
 protected:
     virtual void display( ) const;
     virtual bool doChoice( int choice );
+
 };
 //供应商商品菜单
 class ProductMenu :public Menu {
