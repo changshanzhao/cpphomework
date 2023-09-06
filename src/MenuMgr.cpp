@@ -4,7 +4,6 @@
 
 #include "../include/Menu.h"
 #include "../include/MenuMgr.h"
-#include "../include/MenuType.h"
 #include "../include/MenuFactory.h"
 
 // µ¥Àý

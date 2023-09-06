@@ -45,20 +45,6 @@ public:
 
     }
 
-    void showStringInfo()
-    {
-        for(int i = 0; i < stringList.size();i++)
-        {
-            cout << stringList[i] << endl;
-        }
-    }
-    //输出到文本文件
-    void writeDataFile( const string& fileName) {
-        ofstream outFile( fileName, ios_base::out );
-        outFile << "abc1" << endl;
-        outFile << "abc2" << endl;
-    }
-
 
 };
 #endif //HOMEWORK_FILEEXAMPLE_H

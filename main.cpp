@@ -2,7 +2,6 @@
 #include <memory>
 using namespace std;
 #include "include/App.h"
-#include "include/Data.h"
 
 int main()
 {

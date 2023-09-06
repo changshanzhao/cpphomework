@@ -1,5 +1,5 @@
+mkdir build
 cd build
-sudo rm rf ./*
 cmake ..
-make
+make -j11
 ./task

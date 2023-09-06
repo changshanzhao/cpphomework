@@ -6,11 +6,6 @@
 #include "../include/App.h"
 #include "../include/Menu.h"
 #include "../include/MenuMgr.h"
-#include "../include/inquiry.h"
-#include "../include/product.h"
-#include "../include/purchase.h"
-#include "../include/vendor.h"
-#include "../include/order.h"
 const std::string VENDORPATH = std::string("../source/vendor.txt");
 const std::string PRODUCTPATH = std::string("../source/product.txt");
 const std::string  PURCHASEPATH = std::string("../source/purchase.txt");
