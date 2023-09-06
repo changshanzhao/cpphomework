@@ -30,11 +30,11 @@ public:
     void showPurchaseInfo();
     std::string backMsg(){return id + "," + name + "," + num + "," + type + "," + request;}
 private:
-    std::string id; // å†…éƒ¨ç¼–å·
-    std::string name; // å†…éƒ¨å
-    std::string num; // æ•°é‡
-    std::string type; // è§„æ ¼å‹å·
-    std::string request; //é‡‡è´­è¦æ±‚
+    std::string id; // ÄÚ²¿±àºÅ
+    std::string name; // ÄÚ²¿Ãû
+    std::string num; // ÊıÁ¿
+    std::string type; // ¹æ¸ñĞÍºÅ
+    std::string request; //²É¹ºÒªÇó
     std::string msg;
 };
 #endif //HOMEWORK_PURCHASE_H

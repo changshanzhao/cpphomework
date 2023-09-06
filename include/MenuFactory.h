@@ -6,7 +6,7 @@
 #define HOMEWORK_MENUFACTORY_H
 #include "MenuType.h"
 
-//èœå•å·¥å‚
+//²Ëµ¥¹¤³§
 class Menu;
 class MenuFactory {
 public:

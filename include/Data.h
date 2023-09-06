@@ -1,6 +1,3 @@
-//
-// Created by ³Â¹ÚºÀ on 2023/8/28.
-//
 
 #ifndef HOMEWORK_DATA_H
 #define HOMEWORK_DATA_H

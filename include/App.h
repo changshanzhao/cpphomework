@@ -14,9 +14,9 @@
 class App {
 public:
     virtual ~App( ) = default;
-    virtual void init( );	//åˆå§‹åŒ–å·¥ä½œ
-    virtual void run( );	//è¿è¡Œ
-    virtual void term( );	//æ¸…ç†å·¥ä½œ
+    virtual void init( );	//³õÊ¼»¯¹¤×÷
+    virtual void run( );	//ÔËĞĞ
+    virtual void term( );	//ÇåÀí¹¤×÷
 
 };
 

@@ -24,44 +24,44 @@ bool Menu::process()
 
 void MainMenu::display( ) const {
     // system( "cls" );
-	cout << "\n\t	ä¸»èœå•\n\n";	
-	cout << "\t	1. ä¾›åº”å•†ç®¡ç†\n";
-	cout << "\t	2. ä¾›åº”å•†äº§å“ç®¡ç†\n";
-	cout << "\t	3. é‡‡è´­é¡¹ç®¡ç†\n";
-	cout << "\t	4. è¯¢ä»·ç®¡ç†\n";
-	cout << "\t	5. è®¢å•ç®¡ç†\n";
-	cout << "\t	6. ä¿¡æ¯å¯¼å‡º\n";
-	cout << "\t	0. é€€å‡º\n\n";
+	cout << "\n\t	Ö÷²Ëµ¥\n\n";	
+	cout << "\t	1. ¹©Ó¦ÉÌ¹ÜÀí\n";
+	cout << "\t	2. ¹©Ó¦ÉÌ²úÆ·¹ÜÀí\n";
+	cout << "\t	3. ²É¹ºÏî¹ÜÀí\n";
+	cout << "\t	4. Ñ¯¼Û¹ÜÀí\n";
+	cout << "\t	5. ¶©µ¥¹ÜÀí\n";
+	cout << "\t	6. ĞÅÏ¢µ¼³ö\n";
+	cout << "\t	0. ÍË³ö\n\n";
 
-	cout << "\t è¯·é€‰æ‹©ï¼ˆ0-6ï¼‰ï¼š";
+	cout << "\t ÇëÑ¡Ôñ£¨0-6£©£º";
 }
 
 bool MainMenu::doChoice( int choice ) {
 	switch ( choice ) {
 	case 0:
-		return false;  //é€€å‡ºç»ˆæ­¢
+		return false;  //ÍË³öÖÕÖ¹
 	case 1:
-		//è½¬åˆ°ä¾›åº”å•†ç®¡ç†èœå•
+		//×ªµ½¹©Ó¦ÉÌ¹ÜÀí²Ëµ¥
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::VENDOR_MENU );
 		break;
 	case 2:
-		//è½¬åˆ°ä¾›åº”å•†å•†å“èœå•
+		//×ªµ½¹©Ó¦ÉÌÉÌÆ·²Ëµ¥
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::PRODUCT_MENU );
 		break;
 	case 3:
-		//è½¬åˆ°é‡‡è´­é¡¹èœå•
+		//×ªµ½²É¹ºÏî²Ëµ¥
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::PURCHASE_MENU );
 		break;
 	case 4:
-		//è½¬åˆ°è¯¢ä»·èœå•
+		//×ªµ½Ñ¯¼Û²Ëµ¥
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::INQUIRY_MENU );
 		break;
 	case 5:
-		//è½¬åˆ°è®¢å•èœå•
+		//×ªµ½¶©µ¥²Ëµ¥
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::ORDER_MENU );
 		break;
 	case 6:
-		//è½¬åˆ°å¯¼å‡ºèœå•
+		//×ªµ½µ¼³ö²Ëµ¥
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::EXPORT_MENU );
 		break;
 	}
@@ -71,15 +71,15 @@ bool MainMenu::doChoice( int choice ) {
 
 
 
-//ä¾›åº”å•†ç®¡ç†
+//¹©Ó¦ÉÌ¹ÜÀí
 void VendorMenu::display( ) const {
-	cout << "\n\t	ä¾›åº”å•†ç®¡ç†\n\n";
-	cout << "\t	1. ä¾›åº”å•†åˆ—è¡¨\n";
-	cout << "\t	2. æŒ‰ä¾›åº”å•†åç§°æŸ¥è¯¢\n";
-	cout << "\t	3. æ·»åŠ ä¾›åº”å•†\n";
-	cout << "\t	0. è¿”å›ä¸Šä¸€çº§\n\n";
+	cout << "\n\t	¹©Ó¦ÉÌ¹ÜÀí\n\n";
+	cout << "\t	1. ¹©Ó¦ÉÌÁĞ±í\n";
+	cout << "\t	2. °´¹©Ó¦ÉÌÃû³Æ²éÑ¯\n";
+	cout << "\t	3. Ìí¼Ó¹©Ó¦ÉÌ\n";
+	cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
 
-	cout << "\t è¯·é€‰æ‹©ï¼ˆ0-3ï¼‰ï¼š";
+	cout << "\t ÇëÑ¡Ôñ£¨0-3£©£º";
 }
 
 
@@ -94,7 +94,7 @@ bool VendorMenu::doChoice( int choice ) {
     {
         int findTol = 0;
         string checkedName;
-        std::cout << "è¾“å…¥ä¾›åº”å•†åç§°:> ";
+        std::cout << "ÊäÈë¹©Ó¦ÉÌÃû³Æ:> ";
         std::cin >> checkedName;
         std::cout << "---------checked-----------" << std::endl;
         for (Vendor vendor: data.appVendor) {
@@ -111,7 +111,7 @@ bool VendorMenu::doChoice( int choice ) {
     }
 	case 3:
     {
-        MSG("è¯·è¾“å…¥ä¾›åº”å•†ä¿¡æ¯ï¼Œä¸€è¡Œä¸€ä¿¡æ¯é¡¹ç›®:> ");
+        MSG("ÇëÊäÈë¹©Ó¦ÉÌĞÅÏ¢£¬Ò»ĞĞÒ»ĞÅÏ¢ÏîÄ¿:> ");
         std::vector<string> listInfo;
         for(int i = 0; i < vendorPropertyCount; i++)
         {
@@ -119,13 +119,13 @@ bool VendorMenu::doChoice( int choice ) {
             std::cin >> sig;
             if(sig.empty()){
                 i--;
-                MSG("ä¿¡æ¯éæ³•ï¼:>");
+                MSG("ĞÅÏ¢·Ç·¨£¡:>");
                 MSG(sig);
             }
 
             listInfo.push_back(sig);
         }
-        MSG("ç»“æŸå½•å…¥ï¼");
+        MSG("½áÊøÂ¼Èë£¡");
         // fflusher in ALL Compilers
         char c;
         while ((c = getchar()) != '\n');
@@ -141,22 +141,22 @@ bool VendorMenu::doChoice( int choice ) {
         data.showAppVendor();
     }break;
 	default:
-		//è¿”å›ä¸Šä¸€çº§
+		//·µ»ØÉÏÒ»¼¶
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
 	}
 	return true;
 }
 
 
-//ä¾›åº”å•†äº§å“ç®¡ç†
+//¹©Ó¦ÉÌ²úÆ·¹ÜÀí
 void ProductMenu::display( ) const {
-	cout << "\n\t	ä¾›åº”å•†å•†å“ç®¡ç†\n\n";
-	cout << "\t	1. æŒ‰ä¾›åº”å•†æŸ¥è¯¢å•†å“åˆ—è¡¨\n";
-	cout << "\t	2. æŒ‰å•†å“åç§°æŸ¥è¯¢ä¾›åº”å•†åˆ—è¡¨\n";
-	cout << "\t	3. æ·»åŠ ä¾›åº”å•†å•†å“\n";
-	cout << "\t	0. è¿”å›ä¸Šä¸€çº§\n\n";
+	cout << "\n\t	¹©Ó¦ÉÌÉÌÆ·¹ÜÀí\n\n";
+	cout << "\t	1. °´¹©Ó¦ÉÌ²éÑ¯ÉÌÆ·ÁĞ±í\n";
+	cout << "\t	2. °´ÉÌÆ·Ãû³Æ²éÑ¯¹©Ó¦ÉÌÁĞ±í\n";
+	cout << "\t	3. Ìí¼Ó¹©Ó¦ÉÌÉÌÆ·\n";
+	cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
 
-	cout << "\t è¯·é€‰æ‹©ï¼ˆ0-3ï¼‰ï¼š";
+	cout << "\t ÇëÑ¡Ôñ£¨0-3£©£º";
 }
 
 
@@ -165,7 +165,7 @@ bool ProductMenu::doChoice( int choice ) {
 	case 1: {
         int findTarget = 0;
         std::string vendorName;
-        MSG("è¾“å…¥ä¾›åº”å•†åç§°:> ");
+        MSG("ÊäÈë¹©Ó¦ÉÌÃû³Æ:> ");
         std::cin >>vendorName;
         MSG("---------------------------checked----------------------------");
         for(Product tmp : data.appProduct)
@@ -185,7 +185,7 @@ bool ProductMenu::doChoice( int choice ) {
     {
         int findTarget = 0;
         std::string productName;
-        MSG("è¾“å…¥å•†å“åç§°:> ");
+        MSG("ÊäÈëÉÌÆ·Ãû³Æ:> ");
         std::cin >>productName;
         MSG("---------------------------checked----------------------------");
         for(Product tmp : data.appProduct)
@@ -203,7 +203,7 @@ bool ProductMenu::doChoice( int choice ) {
 		break;
 	case 3:
     {
-        MSG("è¯·è¾“å…¥å•†å“ä¿¡æ¯ï¼Œä¸€è¡Œä¸€ä¿¡æ¯é¡¹ç›®:> ");
+        MSG("ÇëÊäÈëÉÌÆ·ĞÅÏ¢£¬Ò»ĞĞÒ»ĞÅÏ¢ÏîÄ¿:> ");
         std::vector<string> listInfo;
         for(int i = 0; i < productPropertyCount; i++)
         {
@@ -211,12 +211,12 @@ bool ProductMenu::doChoice( int choice ) {
             std::cin >> sig;
             if(sig.empty()){
                 i--;
-                MSG("ä¿¡æ¯éæ³•ï¼:>");
+                MSG("ĞÅÏ¢·Ç·¨£¡:>");
                 MSG(sig);
             }
             listInfo.push_back(sig);
         }
-        MSG("ç»“æŸå½•å…¥ï¼");
+        MSG("½áÊøÂ¼Èë£¡");
         getchar();
         data.appProduct.push_back
         (
@@ -231,19 +231,19 @@ bool ProductMenu::doChoice( int choice ) {
     }
     break;
 	default:
-		//è¿”å›ä¸Šä¸€çº§
+		//·µ»ØÉÏÒ»¼¶
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
 	}
 	return true;
 }
 
-//é‡‡è´­é¡¹ç®¡ç†
+//²É¹ºÏî¹ÜÀí
 void PurchaseMenu::display( ) const {
-	cout << "\n\t	é‡‡è´­é¡¹ç®¡ç†\n\n";
-	cout << "\t	1. é‡‡è´­é¡¹åˆ—è¡¨\n";
-	cout << "\t	2. æ–°å¢é‡‡è´­é¡¹\n";
-	cout << "\t	0. è¿”å›ä¸Šä¸€çº§\n\n";
-	cout << "\t è¯·é€‰æ‹©ï¼ˆ0-2ï¼‰ï¼š";
+	cout << "\n\t	²É¹ºÏî¹ÜÀí\n\n";
+	cout << "\t	1. ²É¹ºÏîÁĞ±í\n";
+	cout << "\t	2. ĞÂÔö²É¹ºÏî\n";
+	cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
+	cout << "\t ÇëÑ¡Ôñ£¨0-2£©£º";
 }
 
 bool PurchaseMenu::doChoice( int choice ) {
@@ -253,7 +253,7 @@ bool PurchaseMenu::doChoice( int choice ) {
 		break;
 	case 2:
     {
-        MSG("è¯·è¾“å…¥é‡‡è´­ä¿¡æ¯ï¼Œä¸€è¡Œä¸€ä¿¡æ¯é¡¹ç›®:> ");
+        MSG("ÇëÊäÈë²É¹ºĞÅÏ¢£¬Ò»ĞĞÒ»ĞÅÏ¢ÏîÄ¿:> ");
         std::vector<string> listInfo;
         for(int i = 0; i < purchasePropertyCount; i++)
         {
@@ -261,12 +261,12 @@ bool PurchaseMenu::doChoice( int choice ) {
             std::cin >> sig;
             if(sig.empty()){
                 i--;
-                MSG("ä¿¡æ¯éæ³•ï¼:>");
+                MSG("ĞÅÏ¢·Ç·¨£¡:>");
                 MSG(sig);
             }
             listInfo.push_back(sig);
         }
-        MSG("ç»“æŸå½•å…¥ï¼");
+        MSG("½áÊøÂ¼Èë£¡");
         getchar();
         data.appPurchase.push_back(
              Purchase
@@ -281,22 +281,22 @@ bool PurchaseMenu::doChoice( int choice ) {
         );
     }break;
 	case 0:
-		//è¿”å›ä¸Šä¸€çº§
+		//·µ»ØÉÏÒ»¼¶
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
 	}
 	return true;
 }
 
-//è¯¢ä»·ç®¡ç†
+//Ñ¯¼Û¹ÜÀí
 void InquiryMenu::display( ) const {
-	cout << "\n\t	è¯¢ä»·ç®¡ç†\n\n";
-	cout << "\t	1. æŒ‰åç§°ç­›é€‰ä¾›åº”å•†\n";
-	cout << "\t	2. æŒ‰å•†å“åç­›é€‰ä¾›åº”å•†\n";
-	cout << "\t	3. æ–°å¢è¯¢ä»·\n";
-	cout << "\t	4. è¯¢ä»·æ¯”è¾ƒ\n";
-	cout << "\t	0. è¿”å›ä¸Šä¸€çº§\n\n";
+	cout << "\n\t	Ñ¯¼Û¹ÜÀí\n\n";
+	cout << "\t	1. °´Ãû³ÆÉ¸Ñ¡¹©Ó¦ÉÌ\n";
+	cout << "\t	2. °´ÉÌÆ·ÃûÉ¸Ñ¡¹©Ó¦ÉÌ\n";
+	cout << "\t	3. ĞÂÔöÑ¯¼Û\n";
+	cout << "\t	4. Ñ¯¼Û±È½Ï\n";
+	cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
 
-	cout << "\t è¯·é€‰æ‹©ï¼ˆ0-4ï¼‰ï¼š";
+	cout << "\t ÇëÑ¡Ôñ£¨0-4£©£º";
 }
 
 bool InquiryMenu::doChoice( int choice ) {
@@ -305,7 +305,7 @@ bool InquiryMenu::doChoice( int choice ) {
     {
         int findTarget = 0;
         std::string VendorName;
-        MSG("è¾“å…¥åç§°:> ");
+        MSG("ÊäÈëÃû³Æ:> ");
         std::cin >> VendorName;
         MSG("---------------------------checked----------------------------");
         for(Inquiry tmp : data.appInquiry)
@@ -325,7 +325,7 @@ bool InquiryMenu::doChoice( int choice ) {
     {
         int findTarget = 0;
         std::string productName;
-        MSG("è¾“å…¥å•†å“åç§°:> ");
+        MSG("ÊäÈëÉÌÆ·Ãû³Æ:> ");
         std::cin >>productName;
         MSG("---------------------------checked----------------------------");
         for(Inquiry tmp : data.appInquiry)
@@ -343,7 +343,7 @@ bool InquiryMenu::doChoice( int choice ) {
 		break;
 	case 3:
     {
-        MSG("è¯·è¾“å…¥è¯¢ä»·ä¿¡æ¯ï¼Œä¸€è¡Œä¸€ä¿¡æ¯é¡¹ç›®:> ");
+        MSG("ÇëÊäÈëÑ¯¼ÛĞÅÏ¢£¬Ò»ĞĞÒ»ĞÅÏ¢ÏîÄ¿:> ");
         std::vector<string> listInfo;
         for(int i = 0; i < inquiryPropertyCount; i++)
         {
@@ -351,12 +351,12 @@ bool InquiryMenu::doChoice( int choice ) {
             std::cin >> sig;
             if(sig.empty()){
                 i--;
-                MSG("ä¿¡æ¯éæ³•ï¼:>");
+                MSG("ĞÅÏ¢·Ç·¨£¡:>");
                 MSG(sig);
             }
             listInfo.push_back(sig);
         }
-        MSG("ç»“æŸå½•å…¥ï¼");
+        MSG("½áÊøÂ¼Èë£¡");
         getchar();
         data.appInquiry.push_back(
                 Inquiry(
@@ -377,7 +377,7 @@ bool InquiryMenu::doChoice( int choice ) {
     {
         int findTarget = 0;
         std::string ID;
-        MSG("è¾“å…¥åç§°:> ");
+        MSG("ÊäÈëÃû³Æ:> ");
         std::cin >> ID;
         MSG("---------------------------checked----------------------------");
         for(Inquiry tmp : data.appInquiry)
@@ -394,28 +394,28 @@ bool InquiryMenu::doChoice( int choice ) {
     }
 		break;
 	default:
-		//è¿”å›ä¸Šä¸€çº§
+		//·µ»ØÉÏÒ»¼¶
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
 	}
 	return true;
 }
 
-//è®¢å•ç®¡ç†
+//¶©µ¥¹ÜÀí
 void OrderMenu::display( ) const {
-	cout << "\n\t	è®¢å•ç®¡ç†\n\n";
-	cout << "\t	1. æ–°å¢è®¢å•\n";
-	cout << "\t	2. æŸ¥è¯¢è®¢å•\n";
-	cout << "\t	3. è·Ÿè¸ªè®¢å•\n";
-	cout << "\t	0. è¿”å›ä¸Šä¸€çº§\n\n";
+	cout << "\n\t	¶©µ¥¹ÜÀí\n\n";
+	cout << "\t	1. ĞÂÔö¶©µ¥\n";
+	cout << "\t	2. ²éÑ¯¶©µ¥\n";
+	cout << "\t	3. ¸ú×Ù¶©µ¥\n";
+	cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
 
-	cout << "\t è¯·é€‰æ‹©ï¼ˆ0-3ï¼‰ï¼š";
+	cout << "\t ÇëÑ¡Ôñ£¨0-3£©£º";
 }
 
 bool OrderMenu::doChoice( int choice ) {
 	switch ( choice ) {
 	case 1:
     {
-        MSG("è¯·è¾“å…¥è®¢å•ä¿¡æ¯ï¼Œä¸€è¡Œä¸€ä¿¡æ¯é¡¹ç›®:> ");
+        MSG("ÇëÊäÈë¶©µ¥ĞÅÏ¢£¬Ò»ĞĞÒ»ĞÅÏ¢ÏîÄ¿:> ");
         std::vector<string> listInfo;
         for(int i = 0; i < orderPropertyCount; i++)
         {
@@ -423,12 +423,12 @@ bool OrderMenu::doChoice( int choice ) {
             std::cin >> sig;
             if(sig.empty()){
                 i--;
-                MSG("ä¿¡æ¯éæ³•ï¼:>");
+                MSG("ĞÅÏ¢·Ç·¨£¡:>");
                 MSG(sig);
             }
             listInfo.push_back(sig);
         }
-        MSG("ç»“æŸå½•å…¥ï¼");
+        MSG("½áÊøÂ¼Èë£¡");
         getchar();
         data.appOrder.push_back(
             Order(
@@ -449,7 +449,7 @@ bool OrderMenu::doChoice( int choice ) {
     {
         int findTarget = 0;
         std::string ID;
-        MSG("è¾“å…¥ID:> ");
+        MSG("ÊäÈëID:> ");
         std::cin >> ID;
         MSG("---------------------------checked----------------------------");
         for(Order tmp : data.appOrder)
@@ -469,7 +469,7 @@ bool OrderMenu::doChoice( int choice ) {
     {
         int findTarget = 0;
         std::string ID;
-        MSG("è¾“å…¥ID:> ");
+        MSG("ÊäÈëID:> ");
         std::cin >> ID;
         MSG("---------------------------checked----------------------------");
         for(Order tmp : data.appOrder)
@@ -486,23 +486,23 @@ bool OrderMenu::doChoice( int choice ) {
     }
 		break;
 	default:
-		//è¿”å›ä¸Šä¸€çº§
+		//·µ»ØÉÏÒ»¼¶
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
 	}
 	return true;
 }
 
-//ä¿¡æ¯å¯¼å‡º
+//ĞÅÏ¢µ¼³ö
 void ExportMenu::display( ) const {
-	cout << "\n\t	ä¿¡æ¯å¯¼å‡º\n\n";
-	cout << "\t	1. ä¾›åº”å•†åˆ—è¡¨\n";
-	cout << "\t	2. å•†å“åˆ—è¡¨\n";
-	cout << "\t	3. é‡‡é›†å•åˆ—è¡¨\n";
-    cout << "\t	4. è¯¢ä»·åˆ—è¡¨\n";
-    cout << "\t	5. è®¢å•åˆ—è¡¨\n";
-	cout << "\t	0. è¿”å›ä¸Šä¸€çº§\n\n";
+	cout << "\n\t	ĞÅÏ¢µ¼³ö\n\n";
+	cout << "\t	1. ¹©Ó¦ÉÌÁĞ±í\n";
+	cout << "\t	2. ÉÌÆ·ÁĞ±í\n";
+	cout << "\t	3. ²É¼¯µ¥ÁĞ±í\n";
+    cout << "\t	4. Ñ¯¼ÛÁĞ±í\n";
+    cout << "\t	5. ¶©µ¥ÁĞ±í\n";
+	cout << "\t	0. ·µ»ØÉÏÒ»¼¶\n\n";
 
-	cout << "\t è¯·é€‰æ‹©ï¼ˆ0-3ï¼‰ï¼š";
+	cout << "\t ÇëÑ¡Ôñ£¨0-3£©£º";
 }
 
 bool ExportMenu::doChoice( int choice ) {
@@ -523,7 +523,7 @@ bool ExportMenu::doChoice( int choice ) {
             data.exportLists(DataSectionOffSet::ORDER);
             break;
 	default:
-		//è¿”å›ä¸Šä¸€çº§
+		//·µ»ØÉÏÒ»¼¶
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
 	}
 	return true;

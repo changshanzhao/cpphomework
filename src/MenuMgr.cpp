@@ -7,22 +7,22 @@
 #include "../include/MenuType.h"
 #include "../include/MenuFactory.h"
 
-// å•ä¾‹
+// µ¥Àı
 MenuMgr& MenuMgr::getInstance( ) {
     static std::shared_ptr<MenuMgr>  mgr( new MenuMgr() );
     return *mgr;
 }
 
-// æ„é€ å‡½æ•°
+// ¹¹Ôìº¯Êı
 MenuMgr::MenuMgr( ) {
     std::shared_ptr<MenuFactory> fac = std::make_shared<MyMenuFactory>( );
     for ( int menuID = 0; menuID < MenuTypeCount; menuID++ )
         mVctMenus.push_back( fac->createMenu( MenuType(menuID) ));
 
-    mCurrentMenu = mVctMenus[ 0 ]; //åˆå§‹ä¸ºä¸»èœå•
+    mCurrentMenu = mVctMenus[ 0 ]; //³õÊ¼ÎªÖ÷²Ëµ¥
 }
 
-// ææ„æ—¶ï¼Œé‡Šæ”¾å…¨éƒ¨Menu
+// Îö¹¹Ê±£¬ÊÍ·ÅÈ«²¿Menu
 MenuMgr::~MenuMgr( ) {
     for ( Menu * pMenu : mVctMenus )
         delete pMenu;

@@ -1,6 +1,4 @@
-//
-// Created by Lenovo on 2023/8/28.
-//
+
 #include "../include/vendor.h"
 #include "../include/FileExample.h"
 Vendor::Vendor(std::string linedInfoFromTxt) {
@@ -10,13 +8,13 @@ Vendor::Vendor(std::string linedInfoFromTxt) {
     msg = linedInfoFromTxt;
     if(!spliter.stringList.empty() && spliter.stringList.size() == 7)
     {
-        name = spliter.stringList[0]; // 供应商名称
-        addr = spliter.stringList[1]; // 供应商地址
-        type = spliter.stringList[2]; // 企业类型
-        peo  = spliter.stringList[3]; // 联系人
-        peo_phone = spliter.stringList[4]; // 联系人电话
-        pos = spliter.stringList[5]; // 供应商职位
-        level = spliter.stringList[6]; // 供应商星级
+        name = spliter.stringList[0];
+        addr = spliter.stringList[1];
+        type = spliter.stringList[2];
+        peo  = spliter.stringList[3];
+        peo_phone = spliter.stringList[4];
+        pos = spliter.stringList[5];
+        level = spliter.stringList[6];
     }
 }
 

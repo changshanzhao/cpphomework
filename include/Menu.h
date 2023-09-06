@@ -7,7 +7,7 @@
 
 #include "Utils.h"
 #include "Data.h"
-// æŠ½è±¡èœå•
+// ³éÏó²Ëµ¥
 class Menu {
 public:
     virtual ~Menu( ) = default;
@@ -18,44 +18,44 @@ protected:
     virtual bool doChoice( int choice ) = 0;
 };
 
-//ä¸»èœå•
+//Ö÷²Ëµ¥
 class MainMenu :public Menu {
 protected:
     virtual void display( ) const;
     virtual bool doChoice( int choice );
 };
-//ä¾›åº”å•†ç®¡ç†èœå•
+//¹©Ó¦ÉÌ¹ÜÀí²Ëµ¥
 class VendorMenu :public Menu {
 protected:
     virtual void display( ) const;
     virtual bool doChoice( int choice );
 
 };
-//ä¾›åº”å•†å•†å“èœå•
+//¹©Ó¦ÉÌÉÌÆ·²Ëµ¥
 class ProductMenu :public Menu {
 protected:
     virtual void display( ) const;
     virtual bool doChoice( int choice );
 };
-//é‡‡è´­é¡¹èœå•
+//²É¹ºÏî²Ëµ¥
 class PurchaseMenu :public Menu {
 protected:
     virtual void display( ) const;
     virtual bool doChoice( int choice );
 };
-//è¯¢ä»·èœå•
+//Ñ¯¼Û²Ëµ¥
 class InquiryMenu :public Menu {
 protected:
     virtual void display( ) const;
     virtual bool doChoice( int choice );
 };
-//è®¢å•èœå•
+//¶©µ¥²Ëµ¥
 class OrderMenu :public Menu {
 protected:
     virtual void display( ) const;
     virtual bool doChoice( int choice );
 };
-//å¯¼å‡ºèœå•
+//µ¼³ö²Ëµ¥
 class ExportMenu :public Menu {
 protected:
     virtual void display( ) const;

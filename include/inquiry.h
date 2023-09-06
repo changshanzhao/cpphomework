@@ -41,15 +41,15 @@ public:
     bool compareProductName(std::string name){return name == product;}
     bool compareID(std::string ID){return ID == this->id;}
 private:
-    std::string id; // å†…éƒ¨ç¼–å·
-    std::string v_name; // ä¾›åº”å•†
-    std::string product; // äº§å“åç§°
-    std::string type; // è§„æ ¼å‹å·
-    std::string info; // äº§å“è¯´æ˜
-    std::string money; // æŠ¥ä»·
-    std::string m_info; // æŠ¥ä»·è¯´æ˜
-    std::string evaluate; // è¯¢ä»·è¿‡ç¨‹è¯„ä»·
-    std::string level; // è¯¢ä»·è¿‡ç¨‹æ˜Ÿçº§
+    std::string id; // ÄÚ²¿±àºÅ
+    std::string v_name; // ¹©Ó¦ÉÌ
+    std::string product; // ²úÆ·Ãû³Æ
+    std::string type; // ¹æ¸ñĞÍºÅ
+    std::string info; // ²úÆ·ËµÃ÷
+    std::string money; // ±¨¼Û
+    std::string m_info; // ±¨¼ÛËµÃ÷
+    std::string evaluate; // Ñ¯¼Û¹ı³ÌÆÀ¼Û
+    std::string level; // Ñ¯¼Û¹ı³ÌĞÇ¼¶
     std::string msg;
 };
 

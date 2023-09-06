@@ -26,19 +26,21 @@ const int vendorPropertyCount = 7;
 
 class Vendor{
 private:
-    std::string name; // ä¾›åº”å•†åç§°
-    std::string addr; // ä¾›åº”å•†åœ°å€
-    std::string type; // ä¼ä¸šç±»å‹
-    std::string peo; // è”ç³»äºº
-    std::string peo_phone; // è”ç³»äººç”µè¯
-    std::string pos; // ä¾›åº”å•†èŒä½
-    std::string level; // ä¾›åº”å•†æ˜Ÿçº§
-    std::string msg; // å·æ‡’ï¼ˆç”¨äºå±•ç¤ºï¼‰
+    std::string name; // ¹©Ó¦ÉÌÃû³Æ
+    std::string addr; // ¹©Ó¦ÉÌµØÖ·
+    std::string type; // ÆóÒµÀàĞÍ
+    std::string peo; // ÁªÏµÈË
+    std::string peo_phone; // ÁªÏµÈËµç»°
+    std::string pos; // ¹©Ó¦ÉÌÖ°Î»
+    std::string level; // ¹©Ó¦ÉÌĞÇ¼¶
+    std::string msg; // ÍµÀÁ£¨ÓÃÓÚÕ¹Ê¾£©
 public:
     Vendor();
     Vendor(std::string linedInfoFromTxt);
     void showVendorInfo();
-    bool compareName(std::string name) {return name == this->name;}
+    bool compareName(std::string name) {
+        return name == this->name;
+    }
     Vendor(std::string n, std::string a, std::string t,
            std::string p, std::string p_p, std::string po,
            std::string l) : name(std::move(n)), addr(std::move(a)),

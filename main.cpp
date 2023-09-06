@@ -6,8 +6,7 @@ using namespace std;
 
 int main()
 {
-    system("chcp 65001");
-    // 浣跨敤shared_ptr,鍙槻姝㈤仐蹇榙elete锛屽悓鏃剁‘淇濆湪鍫嗗尯鍒嗛厤瀵硅薄
+    // 使用shared_ptr,可防止遗忘delete，同时确保在堆区分配对象
     shared_ptr<App> app = make_shared<App>( );
     app->init( );
     app->run( );

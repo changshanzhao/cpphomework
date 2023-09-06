@@ -21,14 +21,14 @@ public:
     void readDataFile( const string & fileName) {
         ifstream inFile( fileName, ios_base::in );
         string strRecord;
-        //é€è¡Œè¯»å…¥åˆ°strRecordå­—ç¬¦ä¸²ä¸­
+        //ÖğĞĞ¶ÁÈëµ½strRecord×Ö·û´®ÖĞ
         while ( getline( inFile, strRecord ) ) {
-            //å°†å­—ç¬¦ä¸²æŒ‰åˆ†éš”ç¬¦åˆ†éš”æˆå¤šä¸ªå­—ç¬¦ä¸²
+            //½«×Ö·û´®°´·Ö¸ô·û·Ö¸ô³É¶à¸ö×Ö·û´®
             stringList.push_back(strRecord);
         }
     }
 
-    //å°†å­—ç¬¦ä¸²æŒ‰åˆ†éš”ç¬¦åˆ†éš”æˆå¤šä¸ªå­—ç¬¦ä¸²
+    //½«×Ö·û´®°´·Ö¸ô·û·Ö¸ô³É¶à¸ö×Ö·û´®
     void splitByDelimiter( const string & str, char delimiter ) {
         istringstream sstream( str );
         string field;
@@ -52,7 +52,7 @@ public:
             cout << stringList[i] << endl;
         }
     }
-    //è¾“å‡ºåˆ°æ–‡æœ¬æ–‡ä»¶
+    //Êä³öµ½ÎÄ±¾ÎÄ¼ş
     void writeDataFile( const string& fileName) {
         ofstream outFile( fileName, ios_base::out );
         outFile << "abc1" << endl;

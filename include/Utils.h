@@ -1,6 +1,4 @@
-//
-// Created by ³Â¹ÚºÀ on 2023/8/28.
-//
+
 
 #ifndef HOMEWORK_UTILS_H
 #define HOMEWORK_UTILS_H

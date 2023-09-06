@@ -1,6 +1,4 @@
-//
-// Created by ³Â¹ÚºÀ on 2023/8/28.
-//
+
 #include "../include/product.h"
 #include "../include/FileExample.h"
 

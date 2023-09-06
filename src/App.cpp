@@ -11,11 +11,11 @@
 #include "../include/purchase.h"
 #include "../include/vendor.h"
 #include "../include/order.h"
-const std::string VENDORPATH = std::string("../sourse/vendor.txt");
-const std::string PRODUCTPATH = std::string("../sourse/product.txt");
-const std::string  PURCHASEPATH = std::string("../sourse/purchase.txt");
-const std::string  INQUIRYEPATH = std::string("../sourse/inquiry.txt");
-const std::string  ORDERPATH = std::string("../sourse/order.txt");
+const std::string VENDORPATH = std::string("../source/vendor.txt");
+const std::string PRODUCTPATH = std::string("../source/product.txt");
+const std::string  PURCHASEPATH = std::string("../source/purchase.txt");
+const std::string  INQUIRYEPATH = std::string("../source/inquiry.txt");
+const std::string  ORDERPATH = std::string("../source/order.txt");
 Data data;
 void App::init( ) {
     // preInit all basic data
@@ -62,8 +62,8 @@ void App::init( ) {
 void App::run( ) {
     bool running = true;
     while ( running ) {
-        Menu * curMenu = MenuMgr::getInstance( ).currentMenu( ); //ÂèñÂΩìÂâçÊ¥ªÂä®ËèúÂçï
-        running = curMenu->process( ); //Â§ÑÁêÜËèúÂçï
+        Menu * curMenu = MenuMgr::getInstance( ).currentMenu( ); //»°µ±«∞ªÓ∂Ø≤Àµ•
+        running = curMenu->process( ); //¥¶¿Ì≤Àµ•
     }
 }
 

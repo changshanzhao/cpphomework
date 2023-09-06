@@ -7,18 +7,18 @@
 #include <memory>
 #include <vector>
 #include "MenuType.h"
-// å•ä¾‹çš„MenuMgr
+// µ¥ÀıµÄMenuMgr
 class Menu;
 class MenuMgr {
 public:
     static MenuMgr & getInstance( );
 protected:
     MenuMgr( );
-    MenuMgr( const MenuMgr & ) = delete;	//ç¦æ­¢æ‹·è´
-    MenuMgr( MenuMgr && ) = delete;			//ç¦æ­¢è½¬ç§»æ‹·è´
-    MenuMgr & operator=( const MenuMgr & ) = delete;	//ç¦æ­¢èµ‹å€¼
+    MenuMgr( const MenuMgr & ) = delete;	//½ûÖ¹¿½±´
+    MenuMgr( MenuMgr && ) = delete;			//½ûÖ¹×ªÒÆ¿½±´
+    MenuMgr & operator=( const MenuMgr & ) = delete;	//½ûÖ¹¸³Öµ
 public:
-    // å½“å‰æ´»åŠ¨èœå•çš„ getter/setter
+    // µ±Ç°»î¶¯²Ëµ¥µÄ getter/setter
     Menu * currentMenu( ) const			{ return mCurrentMenu; }
     ~MenuMgr();
     void   setCurrentMenu( MenuType menuType )
@@ -27,7 +27,7 @@ public:
         mCurrentMenu = mVctMenus[ (int)menuType ];
     }
 private:
-    std::vector<Menu *>	mVctMenus = {}; //å…¨éƒ¨èœå•é›†åˆ
-    Menu * mCurrentMenu = nullptr;	//æ´»åŠ¨èœå•
+    std::vector<Menu *>	mVctMenus = {}; //È«²¿²Ëµ¥¼¯ºÏ
+    Menu * mCurrentMenu = nullptr;	//»î¶¯²Ëµ¥
 };
 #endif //HOMEWORK_MENUMGR_H

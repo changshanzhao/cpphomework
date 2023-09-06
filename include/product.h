@@ -29,10 +29,10 @@ public:
     void showProductInfo();
     std::string backMsg(){return v_name + "," + p_name + "," + type + "," + info;}
 private:
-    std::string v_name; // ä¾›åº”å•†åç§°
-    std::string p_name; // äº§å“åç§°
-    std::string type; // è§„æ ¼å‹å·
-    std::string info; // äº§å“è¯´æ˜
+    std::string v_name; // ¹©Ó¦ÉÌÃû³Æ
+    std::string p_name; // ²úÆ·Ãû³Æ
+    std::string type; // ¹æ¸ñĞÍºÅ
+    std::string info; // ²úÆ·ËµÃ÷
     std::string msg;
 };
 #endif //HOMEWORK_PRODUCT_H

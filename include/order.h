@@ -45,15 +45,15 @@ public:
         unit + "," + num + "," + total_money;}
     bool compareID(std::string ID){return ID == this->id;}
 private:
-    std::string id; // é‡‡è´­å†…éƒ¨ç¼–å·
-    std::string v_name; // ä¾›åº”å•†
-    std::string product; // äº§å“åç§°
-    std::string type; // è§„æ ¼å‹å·
-    std::string money; // å•ä»·
-    std::string unit; // è®¡é‡å•ä½
-    std::string num; // æ•°é‡
-    std::string total_money; // æ€»ä»·
-    std::string request; // è®¢å•è¦æ±‚
+    std::string id; // ²É¹ºÄÚ²¿±àºÅ
+    std::string v_name; // ¹©Ó¦ÉÌ
+    std::string product; // ²úÆ·Ãû³Æ
+    std::string type; // ¹æ¸ñĞÍºÅ
+    std::string money; // µ¥¼Û
+    std::string unit; // ¼ÆÁ¿µ¥Î»
+    std::string num; // ÊıÁ¿
+    std::string total_money; // ×Ü¼Û
+    std::string request; // ¶©µ¥ÒªÇó
     std::string msg;
 };
 #endif //HOMEWORK_ORDER_H
