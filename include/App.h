@@ -4,13 +4,7 @@
 
 #ifndef HOMEWORK_APP_H
 #define HOMEWORK_APP_H
-#include "inquiry.h"
-#include "product.h"
-#include "purchase.h"
-#include "vendor.h"
-#include "order.h"
 #include "Data.h"
-#include "Utils.h"
 class App {
 public:
     virtual ~App( ) = default;

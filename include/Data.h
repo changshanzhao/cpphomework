@@ -7,6 +7,7 @@
 #include "vendor.h"
 #include "order.h"
 #include "Utils.h"
+#include "../include/FileExample.h"
 
 enum class DataSectionOffSet{
     VENDOR,
@@ -19,17 +20,16 @@ enum class DataSectionOffSet{
 
 class Data {
 public:
+    void exportLists(DataSectionOffSet which);
+    void showAppVendor();
+//    void showAppProduct();
+    void showAppPurchase();
+    void init();
     std::vector<Vendor> appVendor;
     std::vector<Product> appProduct;
     std::vector<Purchase> appPurchase;
     std::vector<Inquiry> appInquiry;
     std::vector<Order> appOrder;
-
-    void exportLists(DataSectionOffSet which);
-
-    void showAppVendor();
-    void showAppProduct();
-    void showAppPurchase();
 
 };
 

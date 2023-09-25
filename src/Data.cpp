@@ -15,15 +15,55 @@ void Data::showAppVendor()
     }
     LINE;
 }
-
-void Data::showAppProduct()
+void Data::init()
 {
-    LINE;
-    for(Product tmp : appProduct){
-        tmp.showProductInfo();
+    FileExample example;
+    example.readDataFile(VENDORPATH);
+    for(int i = 0; i < example.stringList.size(); i++)
+    {
+        data.appVendor.push_back(Vendor(example.stringList[i]));
     }
-    LINE;
+
+    example.stringList.clear();
+
+    example.readDataFile(PRODUCTPATH);
+    for(int i = 0; i < example.stringList.size(); i++)
+    {
+        data.appProduct.push_back(Product(example.stringList[i]));
+    }
+
+    example.stringList.clear();
+
+    example.readDataFile(PURCHASEPATH);
+    for(int i = 0; i < example.stringList.size(); i++)
+    {
+        data.appPurchase.push_back(Purchase(example.stringList[i]));
+    }
+
+    example.stringList.clear();
+
+    example.readDataFile(INQUIRYEPATH);
+    for(int i = 0; i < example.stringList.size(); i++)
+    {
+        data.appInquiry.push_back(Inquiry(example.stringList[i]));
+    }
+
+    example.stringList.clear();
+
+    example.readDataFile(ORDERPATH);
+    for(int i = 0; i < example.stringList.size(); i++)
+    {
+        data.appPurchase.push_back(Purchase(example.stringList[i]));
+    }
 }
+//void Data::showAppProduct()
+//{
+//    LINE;
+//    for(Product tmp : appProduct){
+//        tmp.showProductInfo();
+//    }
+//    LINE;
+//}
 
 void Data::showAppPurchase() {
     LINE;
