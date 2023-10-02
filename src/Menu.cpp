@@ -36,8 +36,10 @@ void MainMenu::display( ) const {
 
 bool MainMenu::doChoice( int choice ) {
 	switch ( choice ) {
-	case 0:
-		return false;  //退出终止
+    case 0:
+        cout<<"\n\t欢迎下次再使用!\n"<<endl;
+        system("pause");
+        return false;  //退出终止
 	case 1:
 		//转到供应商管理菜单
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::VENDOR_MENU );
@@ -62,6 +64,8 @@ bool MainMenu::doChoice( int choice ) {
 		//转到导出菜单
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::EXPORT_MENU );
 		break;
+    default:
+        system("cls");
 	}
 	return true;
 }
@@ -138,9 +142,11 @@ bool VendorMenu::doChoice( int choice ) {
                 ));
         data.showAppVendor();
     }break;
-	default:
+	case 0:
 		//返回上一级
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
+    default:
+        system("cls");
 	}
 	return true;
 }
@@ -228,9 +234,11 @@ bool ProductMenu::doChoice( int choice ) {
         );
     }
     break;
-	default:
+	case 0:
 		//返回上一级
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
+    default:
+        system("cls");
 	}
 	return true;
 }
@@ -281,6 +289,8 @@ bool PurchaseMenu::doChoice( int choice ) {
 	case 0:
 		//返回上一级
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
+    default:
+        system("cls");
 	}
 	return true;
 }
@@ -397,13 +407,15 @@ bool InquiryMenu::doChoice( int choice ) {
         std::string ID;
         MSG("输入ID:> ");
         std::cin >> ID;
-        MSG("综合供应商星级询价星级和价格考虑 智能推荐供应商："+Inquiry::best_choice(ID));
+        MSG(Inquiry::best_choice(ID));
 
     }
         break;
-	default:
+	case 0:
 		//返回上一级
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
+    default:
+        system("cls");
 	}
 	return true;
 }
@@ -493,9 +505,11 @@ bool OrderMenu::doChoice( int choice ) {
         MSG("---------------------------finished----------------------------");
     }
 		break;
-	default:
+	case 0:
 		//返回上一级
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
+    default:
+        system("cls");
 	}
 	return true;
 }
@@ -530,9 +544,11 @@ bool ExportMenu::doChoice( int choice ) {
     case 5:
             data.exportLists(DataSectionOffSet::ORDER);
             break;
-	default:
+	case 0:
 		//返回上一级
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
+    default:
+        system("cls");
 	}
 	return true;
 }
