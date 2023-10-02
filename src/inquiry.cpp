@@ -53,7 +53,7 @@ std::string Inquiry::best_choice(std::string ID)
     else
     {
         std::sort(res_pair.begin(), res_pair.end(), comparePairs);
-        return res_pair[0].first;
+        return "综合供应商星级询价星级和价格考虑 智能推荐供应商："+res_pair[0].first;
     }
 
     MSG("---------------------------finished----------------------------");
