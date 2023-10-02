@@ -19,8 +19,9 @@ bool Menu::process()
     return doChoice( choice );
 }
 
-bool Menu::exported = false;
+bool Menu::exported = false;// 记录是否执行过导出操作
 
+//确认退出
 void Menu::confirmExit() {
     cout << "是否保存更改？（Y/N）: ";
     char choice;
