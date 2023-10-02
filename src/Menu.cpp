@@ -4,6 +4,7 @@ using namespace std;
 #include "../include/Menu.h"
 #include "../include/MenuMgr.h"
 
+
 int Menu::selectMenuItem( ) {
 	int choice = 0;
     std::fflush(stdin);
@@ -18,7 +19,23 @@ bool Menu::process()
     return doChoice( choice );
 }
 
+bool Menu::exported = false;
 
+void Menu::confirmExit() {
+    cout << "是否保存更改？（Y/N）: ";
+    char choice;
+    cin >> choice;
+    if (choice == 'Y' || choice == 'y') {
+        data.exportLists(DataSectionOffSet::VENDOR);
+        data.exportLists(DataSectionOffSet::PRODUCT);
+        data.exportLists(DataSectionOffSet::PURCHASE);
+        data.exportLists(DataSectionOffSet::INQUIRY);
+        data.exportLists(DataSectionOffSet::ORDER);
+        cout << "已保存更改。" << endl;
+    } else {
+        cout << "未保存更改。" << endl;
+    }
+}
 
 void MainMenu::display( ) const {
     // system( "cls" );
@@ -34,12 +51,15 @@ void MainMenu::display( ) const {
 	cout << "\t 请选择（0-6）：";
 }
 
-bool MainMenu::doChoice( int choice ) {
-	switch ( choice ) {
+
+
+bool MainMenu::doChoice(int choice) {
+    switch (choice) {
     case 0:
-        cout<<"\n\t欢迎下次再使用!\n"<<endl;
+        if(!exported)confirmExit();
+        cout << "\n\t欢迎下次再使用!\n" << endl;
         system("pause");
-        return false;  //退出终止
+        return false;  // 退出终止
 	case 1:
 		//转到供应商管理菜单
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::VENDOR_MENU );
@@ -405,10 +425,9 @@ bool InquiryMenu::doChoice( int choice ) {
     case 5:
     {
         std::string ID;
-        MSG("输入ID:> ");
+        MSG("输入商品ID:> ");
         std::cin >> ID;
-        MSG(Inquiry::best_choice(ID));
-
+        MSG("\n"+Inquiry::best_choice(ID));
     }
         break;
 	case 0:
@@ -522,28 +541,43 @@ void ExportMenu::display( ) const {
 	cout << "\t	3. 采集单列表\n";
     cout << "\t	4. 询价列表\n";
     cout << "\t	5. 订单列表\n";
+    cout << "\t	6. 所有列表\n";
 	cout << "\t	0. 返回上一级\n\n";
 
-	cout << "\t 请选择（0-3）：";
+	cout << "\t 请选择（0-6）：";
 }
 
 bool ExportMenu::doChoice( int choice ) {
+
 	switch ( choice ) {
 	case 1:
 		data.exportLists(DataSectionOffSet::VENDOR);
+        Menu::exported = true;
 		break;
 	case 2:
         data.exportLists(DataSectionOffSet::PRODUCT);
+        Menu::exported = true;
 		break;
 	case 3:
         data.exportLists(DataSectionOffSet::PURCHASE);
+        Menu::exported = true;
 		break;
     case 4:
-            data.exportLists(DataSectionOffSet::INQUIRY);
-            break;
+        data.exportLists(DataSectionOffSet::INQUIRY);
+        Menu::exported = true;
+        break;
     case 5:
-            data.exportLists(DataSectionOffSet::ORDER);
-            break;
+        data.exportLists(DataSectionOffSet::ORDER);
+        Menu::exported = true;
+        break;
+    case 6:
+        data.exportLists(DataSectionOffSet::VENDOR);
+        data.exportLists(DataSectionOffSet::PRODUCT);
+        data.exportLists(DataSectionOffSet::PURCHASE);
+        data.exportLists(DataSectionOffSet::INQUIRY);
+        data.exportLists(DataSectionOffSet::ORDER);
+        Menu::exported = true;
+        break;
 	case 0:
 		//返回上一级
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );

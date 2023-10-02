@@ -12,10 +12,12 @@ class Menu {
 public:
     virtual ~Menu( ) = default;
     virtual bool process();
+    virtual void confirmExit();//确认退出
 protected:
     virtual void display( ) const = 0;
     virtual int  selectMenuItem( );
     virtual bool doChoice( int choice ) = 0;
+    static bool exported; // 记录是否执行过导出操作
 };
 
 //主菜单
@@ -36,6 +38,7 @@ class ProductMenu :public Menu {
 protected:
     virtual void display( ) const;
     virtual bool doChoice( int choice );
+
 };
 //采购项菜单
 class PurchaseMenu :public Menu {
