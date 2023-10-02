@@ -40,6 +40,7 @@ public:
     bool compareVName(std::string name){return name == v_name;}
     bool compareProductName(std::string name){return name == product;}
     bool compareID(std::string ID){return ID == this->id;}
+    static std::string best_choice(std::string ID);
 private:
     std::string id; // 内部编号
     std::string v_name; // 供应商

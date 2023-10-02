@@ -50,5 +50,6 @@ public:
     }
 
     std::string backMsg(){return msg;}
+    std::string get_level(){return level;}
 };
 #endif //HOMEWORK_VENDOR_H

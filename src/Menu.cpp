@@ -292,9 +292,10 @@ void InquiryMenu::display( ) const {
 	cout << "\t	2. 按商品名筛选供应商\n";
 	cout << "\t	3. 新增询价\n";
 	cout << "\t	4. 询价比较\n";
+    cout << "\t	5. 智能推荐供应商\n";
 	cout << "\t	0. 返回上一级\n\n";
 
-	cout << "\t 请选择（0-4）：";
+	cout << "\t 请选择（0-5）：";
 }
 
 bool InquiryMenu::doChoice( int choice ) {
@@ -375,7 +376,7 @@ bool InquiryMenu::doChoice( int choice ) {
     {
         int findTarget = 0;
         std::string ID;
-        MSG("输入名称:> ");
+        MSG("输入ID:> ");
         std::cin >> ID;
         MSG("---------------------------checked----------------------------");
         for(Inquiry tmp : data.appInquiry)
@@ -391,6 +392,15 @@ bool InquiryMenu::doChoice( int choice ) {
         MSG("---------------------------finished----------------------------");
     }
 		break;
+    case 5:
+    {
+        std::string ID;
+        MSG("输入ID:> ");
+        std::cin >> ID;
+        MSG("综合供应商星级询价星级和价格考虑 智能推荐供应商："+Inquiry::best_choice(ID));
+
+    }
+        break;
 	default:
 		//返回上一级
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
