@@ -21,9 +21,9 @@ bool Menu::process()
 
 bool Menu::exported = false;// 记录是否执行过导出操作
 
-//确认退出
+//退出保存确认
 void Menu::confirmExit() {
-    cout << "是否保存更改？（Y/N）: ";
+    cout << "\n\t是否导出更改？（Y/N）: ";
     char choice;
     cin >> choice;
     if (choice == 'Y' || choice == 'y') {
@@ -32,9 +32,9 @@ void Menu::confirmExit() {
         data.exportLists(DataSectionOffSet::PURCHASE);
         data.exportLists(DataSectionOffSet::INQUIRY);
         data.exportLists(DataSectionOffSet::ORDER);
-        cout << "已保存更改。" << endl;
+        cout << "\n\t已保存更改。" << endl;
     } else {
-        cout << "未保存更改。" << endl;
+        cout << "\n\t未保存更改。" << endl;
     }
 }
 
@@ -134,10 +134,38 @@ bool VendorMenu::doChoice( int choice ) {
     }
 	case 3:
     {
-        MSG("请输入供应商信息，一行一信息项目:> ");
         std::vector<string> listInfo;
         for(int i = 0; i < vendorPropertyCount; i++)
         {
+            string prompt;
+            switch(i)
+            {
+                case static_cast<int>(VendorArrayOffset::NAME):
+                    prompt = "请输入供应商名称: ";
+                    break;
+                case static_cast<int>(VendorArrayOffset::ADDR):
+                    prompt = "请输入地址: ";
+                    break;
+                case static_cast<int>(VendorArrayOffset::TYPE):
+                    prompt = "请输入企业类型: ";
+                    break;
+                case static_cast<int>(VendorArrayOffset::PEO):
+                    prompt = "请输入联系人: ";
+                    break;
+                case static_cast<int>(VendorArrayOffset::PEO_PHONE):
+                    prompt = "请输入联系人电话: ";
+                    break;
+                case static_cast<int>(VendorArrayOffset::POS):
+                    prompt = "请输入联系人职务: ";
+                    break;
+                case static_cast<int>(VendorArrayOffset::LEVEL):
+                    prompt = "请输入供应商评价星级: ";
+                    break;
+                default:
+                    //预留
+                    break;
+            }
+            MSG(prompt);//输入提示
             string sig;
             std::cin >> sig;
             if(sig.empty()){
@@ -228,10 +256,30 @@ bool ProductMenu::doChoice( int choice ) {
 		break;
 	case 3:
     {
-        MSG("请输入商品信息，一行一信息项目:> ");
         std::vector<string> listInfo;
         for(int i = 0; i < productPropertyCount; i++)
         {
+            string prompt;
+            switch(i)
+            {
+                case static_cast<int>(ProductArrayOffSet::V_NAME):
+                    prompt = "请输入供应商名称: ";
+                    break;
+                case static_cast<int>(ProductArrayOffSet::P_NAME):
+                    prompt = "请输入产品名称: ";
+                    break;
+                case static_cast<int>(ProductArrayOffSet::TYPE):
+                    prompt = "请输入规格型号: ";
+                    break;
+                case static_cast<int>(ProductArrayOffSet::INFO):
+                    prompt = "请输入产品说明: ";
+                    break;
+                default:
+                    //预留
+                    break;
+            }
+
+            MSG(prompt);//输入提示
             string sig;
             std::cin >> sig;
             if(sig.empty()){
@@ -280,10 +328,33 @@ bool PurchaseMenu::doChoice( int choice ) {
 		break;
 	case 2:
     {
-        MSG("请输入采购信息，一行一信息项目:> ");
         std::vector<string> listInfo;
         for(int i = 0; i < purchasePropertyCount; i++)
         {
+            string prompt;
+            switch(i)
+            {
+                case static_cast<int>(PurchaseArrayOffSet::ID):
+                    prompt = "请输入采购内部编号: ";
+                    break;
+                case static_cast<int>(PurchaseArrayOffSet::NAME):
+                    prompt = "请输入采购项内部名: ";
+                    break;
+                case static_cast<int>(PurchaseArrayOffSet::NUM):
+                    prompt = "请输入数量: ";
+                    break;
+                case static_cast<int>(PurchaseArrayOffSet::TYPE):
+                    prompt = "请输入规格型号: ";
+                    break;
+                case static_cast<int>(PurchaseArrayOffSet::REQUEST):
+                    prompt = "请输入采购要求: ";
+                    break;
+                default:
+                    //预留
+                    break;
+            }
+            MSG(prompt);//输入提示
+
             string sig;
             std::cin >> sig;
             if(sig.empty()){
@@ -373,10 +444,45 @@ bool InquiryMenu::doChoice( int choice ) {
 		break;
 	case 3:
     {
-        MSG("请输入询价信息，一行一信息项目:> ");
         std::vector<string> listInfo;
         for(int i = 0; i < inquiryPropertyCount; i++)
         {
+            string prompt;
+            switch(i)
+            {
+                case static_cast<int>(InquiryArrayOffSet::ID):
+                    prompt = "请输入采购内部编号: ";
+                    break;
+                case static_cast<int>(InquiryArrayOffSet::V_NAME):
+                    prompt = "请输入供应商: ";
+                    break;
+                case static_cast<int>(InquiryArrayOffSet::PRODUCT):
+                    prompt = "请输入产品名称: ";
+                    break;
+                case static_cast<int>(InquiryArrayOffSet::TYPE):
+                    prompt = "请输入规格型号: ";
+                    break;
+                case static_cast<int>(InquiryArrayOffSet::INFO):
+                    prompt = "请输入产品说明: ";
+                    break;
+                case static_cast<int>(InquiryArrayOffSet::MONEY):
+                    prompt = "请输入报价: ";
+                    break;
+                case static_cast<int>(InquiryArrayOffSet::M_INFO):
+                    prompt = "请输入报价说明: ";
+                    break;
+                case static_cast<int>(InquiryArrayOffSet::EVALUATE):
+                    prompt = "请输入询价过程评价: ";
+                    break;
+                case static_cast<int>(InquiryArrayOffSet::LEVEL):
+                    prompt = "请输入询价过程星级: ";
+                    break;
+                default:
+                    //预留
+                    break;
+            }
+
+            MSG(prompt);//输入提示
             string sig;
             std::cin >> sig;
             if(sig.empty()){
@@ -455,10 +561,46 @@ bool OrderMenu::doChoice( int choice ) {
 	switch ( choice ) {
 	case 1:
     {
-        MSG("请输入订单信息，一行一信息项目:> ");
         std::vector<string> listInfo;
         for(int i = 0; i < orderPropertyCount; i++)
         {
+            string prompt;
+            switch(i)
+            {
+                case static_cast<int>(OrderArrayOffSet::ID):
+                    prompt = "请输入采购内部编号: ";
+                    break;
+                case static_cast<int>(OrderArrayOffSet::V_NAME):
+                    prompt = "请输入供应商: ";
+                    break;
+                case static_cast<int>(OrderArrayOffSet::PRODUCT):
+                    prompt = "请输入产品名称: ";
+                    break;
+                case static_cast<int>(OrderArrayOffSet::TYPE):
+                    prompt = "请输入规格型号: ";
+                    break;
+                case static_cast<int>(OrderArrayOffSet::MONEY):
+                    prompt = "请输入单价: ";
+                    break;
+                case static_cast<int>(OrderArrayOffSet::UNIT):
+                    prompt = "请输入计量单位: ";
+                    break;
+                case static_cast<int>(OrderArrayOffSet::NUM):
+                    prompt = "请输入数量: ";
+                    break;
+                case static_cast<int>(OrderArrayOffSet::TOTAL_MONEY):
+                    prompt = "请输入总价: ";
+                    break;
+                case static_cast<int>(OrderArrayOffSet::REQUEST):
+                    prompt = "请输入订单要求: ";
+                    break;
+                default:
+                    //预留
+                    break;
+            }
+
+            MSG(prompt);//输入提示
+
             string sig;
             std::cin >> sig;
             if(sig.empty()){
