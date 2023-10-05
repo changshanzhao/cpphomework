@@ -18,14 +18,16 @@ void Data::showAppVendor()
 void Data::init()
 {
     FileExample example;
+    // 读取vendor.txt
     example.readDataFile(VENDORPATH);
     for(int i = 0; i < example.stringList.size(); i++)
     {
         data.appVendor.push_back(Vendor(example.stringList[i]));
     }
 
-    example.stringList.clear();
+    example.stringList.clear();// 清空stringList
 
+    // 读取product.txt
     example.readDataFile(PRODUCTPATH);
     for(int i = 0; i < example.stringList.size(); i++)
     {
@@ -34,6 +36,7 @@ void Data::init()
 
     example.stringList.clear();
 
+    // 读取purchase.txt
     example.readDataFile(PURCHASEPATH);
     for(int i = 0; i < example.stringList.size(); i++)
     {
@@ -42,6 +45,7 @@ void Data::init()
 
     example.stringList.clear();
 
+    // 读取inquiry.txt
     example.readDataFile(INQUIRYEPATH);
     for(int i = 0; i < example.stringList.size(); i++)
     {
@@ -50,10 +54,10 @@ void Data::init()
 
     example.stringList.clear();
 
+    // 读取order.txt
     example.readDataFile(ORDERPATH);
-    for(int i = 0; i < example.stringList.size(); i++)
-    {
-        data.appPurchase.push_back(Purchase(example.stringList[i]));
+    for (int i = 0; i < example.stringList.size(); i++) {
+        data.appOrder.push_back(Order(example.stringList[i]));
     }
 }
 //void Data::showAppProduct()

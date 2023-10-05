@@ -100,13 +100,11 @@ void VendorMenu::display( ) const {
 	cout << "\t	1. 供应商列表\n";
 	cout << "\t	2. 按供应商名称查询\n";
 	cout << "\t	3. 添加供应商\n";
+    cout << "\t	4. 按供应商名称删除\n";
 	cout << "\t	0. 返回上一级\n\n";
 
-	cout << "\t 请选择（0-3）：";
+	cout << "\t 请选择（0-4）：";
 }
-
-
-
 
 bool VendorMenu::doChoice( int choice ) {
 	switch ( choice ) {	
@@ -191,6 +189,30 @@ bool VendorMenu::doChoice( int choice ) {
                 ));
         data.showAppVendor();
     }break;
+    case 4:
+    {
+        string checkedName;
+        std::cout << "输入要删除的供应商名称:> ";
+        std::cin >> checkedName;
+
+        auto it = data.appVendor.begin();// 迭代器
+        bool  found = false;// 标记是否找到
+
+        while (it != data.appVendor.end()) {
+            if (it->compareName(checkedName)) {
+                it = data.appVendor.erase(it);
+                std::cout << "已删除供应商！" << std::endl;
+                found = true;
+            } else {
+                ++it;
+            }
+        }
+
+        if (!found) {
+            std::cout << "找不到要删除的供应商！" << std::endl;
+        }
+        break;
+    }
 	case 0:
 		//返回上一级
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
@@ -201,17 +223,19 @@ bool VendorMenu::doChoice( int choice ) {
 }
 
 
+
 //供应商产品管理
 void ProductMenu::display( ) const {
 	cout << "\n\t	供应商商品管理\n\n";
 	cout << "\t	1. 按供应商查询商品列表\n";
 	cout << "\t	2. 按商品名称查询供应商列表\n";
 	cout << "\t	3. 添加供应商商品\n";
+    cout << "\t	4. 按商品名称删除供应商商品\n";
+    cout << "\t	5. 按供应商名称删除供应商商品\n";
 	cout << "\t	0. 返回上一级\n\n";
 
-	cout << "\t 请选择（0-3）：";
+	cout << "\t 请选择（0-5）：";
 }
-
 
 bool ProductMenu::doChoice( int choice ) {
 	switch ( choice ) {
@@ -280,6 +304,7 @@ bool ProductMenu::doChoice( int choice ) {
             }
 
             MSG(prompt);//输入提示
+            
             string sig;
             std::cin >> sig;
             if(sig.empty()){
@@ -303,6 +328,54 @@ bool ProductMenu::doChoice( int choice ) {
         );
     }
     break;
+    case 4:
+    {
+        string checkedName;
+        std::cout << "输入要删除的商品名称:> ";
+        std::cin >> checkedName;
+
+        auto it = data.appProduct.begin();// 迭代器
+        bool found = false;// 标记是否找到
+
+        while (it != data.appProduct.end()) {
+            if (it->comparePName(checkedName)) {
+                it = data.appProduct.erase(it);
+                std::cout << "已删除商品！" << std::endl;
+                found = true;
+            } else {
+                ++it;
+            }
+        }
+
+        if (!found) {
+            std::cout << "找不到要删除的商品！" << std::endl;
+        }
+        break;
+    }
+    case 5:
+    {
+        string checkedName;
+        std::cout << "输入要删除的供应商名称:> ";
+        std::cin >> checkedName;
+
+        auto it = data.appProduct.begin();// 迭代器
+        bool found = false;// 标记是否找到
+
+        while (it != data.appProduct.end()) {
+            if (it->compareVName(checkedName)) {
+                it = data.appProduct.erase(it);
+                std::cout << "已删除供应商商品！" << std::endl;
+                found = true;
+            } else {
+                ++it;
+            }
+        }
+
+        if (!found) {
+            std::cout << "找不到要删除的供应商商品！" << std::endl;
+        }
+        break;
+    }
 	case 0:
 		//返回上一级
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
@@ -312,13 +385,16 @@ bool ProductMenu::doChoice( int choice ) {
 	return true;
 }
 
+
+
 //采购项管理
 void PurchaseMenu::display( ) const {
 	cout << "\n\t	采购项管理\n\n";
 	cout << "\t	1. 采购项列表\n";
 	cout << "\t	2. 新增采购项\n";
+    cout << "\t	3. 按采购项名称删除\n";
 	cout << "\t	0. 返回上一级\n\n";
-	cout << "\t 请选择（0-2）：";
+	cout << "\t 请选择（0-3）：";
 }
 
 bool PurchaseMenu::doChoice( int choice ) {
@@ -378,6 +454,31 @@ bool PurchaseMenu::doChoice( int choice ) {
              )
         );
     }break;
+    case 3:
+    {
+        string checkedName;
+        std::cout << "输入要删除的采购项名称:> ";
+        std::cin >> checkedName;
+
+        auto it = data.appPurchase.begin();// 迭代器
+        bool found = false;// 是否找到
+
+        while (it != data.appPurchase.end()) {
+            if (it->compareName(checkedName)) {
+                it = data.appPurchase.erase(it);
+                std::cout << "已删除采购项！" << std::endl;
+                found = true;
+                break; // 删除一个采购项后退出循环
+            } else {
+                ++it;
+            }
+        }
+
+        if (!found) {
+            std::cout << "找不到要删除的采购项！" << std::endl;
+        }
+        break;
+    }
 	case 0:
 		//返回上一级
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );
@@ -386,6 +487,8 @@ bool PurchaseMenu::doChoice( int choice ) {
 	}
 	return true;
 }
+
+
 
 //询价管理
 void InquiryMenu::display( ) const {
@@ -552,9 +655,11 @@ void OrderMenu::display( ) const {
 	cout << "\t	1. 新增订单\n";
 	cout << "\t	2. 查询订单\n";
 	cout << "\t	3. 跟踪订单\n";
+    cout << "\t	4. 按订单内部编码删除\n";
+    cout << "\t	5. 完成订单\n";
 	cout << "\t	0. 返回上一级\n\n";
 
-	cout << "\t 请选择（0-3）：";
+	cout << "\t 请选择（0-5）：";
 }
 
 bool OrderMenu::doChoice( int choice ) {
@@ -562,7 +667,7 @@ bool OrderMenu::doChoice( int choice ) {
 	case 1:
     {
         std::vector<string> listInfo;
-        for(int i = 0; i < orderPropertyCount; i++)
+        for(int i = 0; i < orderPropertyCount-1; i++)
         {
             string prompt;
             switch(i)
@@ -588,9 +693,9 @@ bool OrderMenu::doChoice( int choice ) {
                 case static_cast<int>(OrderArrayOffSet::NUM):
                     prompt = "请输入数量: ";
                     break;
-                case static_cast<int>(OrderArrayOffSet::TOTAL_MONEY):
-                    prompt = "请输入总价: ";
-                    break;
+                //case static_cast<int>(OrderArrayOffSet::TOTAL_MONEY):
+                   // prompt = "请输入总价: ";
+                   // break;
                 case static_cast<int>(OrderArrayOffSet::REQUEST):
                     prompt = "请输入订单要求: ";
                     break;
@@ -602,7 +707,10 @@ bool OrderMenu::doChoice( int choice ) {
             MSG(prompt);//输入提示
 
             string sig;
-            std::cin >> sig;
+            if(i == static_cast<int>(OrderArrayOffSet::TOTAL_MONEY)){
+                sig = std::to_string(std::stod(listInfo[static_cast<int>(OrderArrayOffSet::MONEY)])\
+                * std::stod(listInfo[static_cast<int>(OrderArrayOffSet::NUM)]));}
+            else{std::cin >> sig;}
             if(sig.empty()){
                 i--;
                 MSG("信息非法！:>");
@@ -610,6 +718,8 @@ bool OrderMenu::doChoice( int choice ) {
             }
             listInfo.push_back(sig);
         }
+        string sig = "未完成";
+        listInfo.push_back(sig);
         MSG("结束录入！");
         getchar();
         data.appOrder.push_back(
@@ -622,16 +732,18 @@ bool OrderMenu::doChoice( int choice ) {
               listInfo[static_cast<int>(OrderArrayOffSet::UNIT)],
               listInfo[static_cast<int>(OrderArrayOffSet::NUM)],
               listInfo[static_cast<int>(OrderArrayOffSet::TOTAL_MONEY)],
-              listInfo[static_cast<int>(OrderArrayOffSet::REQUEST)]
+              listInfo[static_cast<int>(OrderArrayOffSet::REQUEST)],
+              listInfo[static_cast<int>(OrderArrayOffSet::CONDITION)]
             )
         );
     }
 		break;
+    //查询订单
 	case 2:
     {
         int findTarget = 0;
         std::string ID;
-        MSG("输入ID:> ");
+        MSG("输入内部编号:> ");
         std::cin >> ID;
         MSG("---------------------------checked----------------------------");
         for(Order tmp : data.appOrder)
@@ -647,11 +759,12 @@ bool OrderMenu::doChoice( int choice ) {
         MSG("---------------------------finished----------------------------");
     }
 		break;
+    //跟踪订单
 	case 3:
     {
         int findTarget = 0;
         std::string ID;
-        MSG("输入ID:> ");
+        MSG("输入内部编号:> ");
         std::cin >> ID;
         MSG("---------------------------checked----------------------------");
         for(Order tmp : data.appOrder)
@@ -667,6 +780,54 @@ bool OrderMenu::doChoice( int choice ) {
         MSG("---------------------------finished----------------------------");
     }
 		break;
+    //按订单内部编码删除
+    case 4:
+    {
+        string checkedName;
+        std::cout << "输入要删除的订单内部编码:> ";
+        std::cin >> checkedName;
+
+        auto it = data.appOrder.begin();// 迭代器
+        bool found = false; // 标记是否找到订单
+        while (it != data.appOrder.end()) {
+            if (it->compareID(checkedName)) {
+                it = data.appOrder.erase(it);
+                std::cout << "已删除订单！" << std::endl;
+                found = true;
+            } else {
+                ++it;
+            }
+        }
+
+        if (!found) {
+            std::cout << "找不到要删除的订单！" << std::endl;
+        }
+        break;
+    }
+    case 5: {
+        string checkedName;
+        std::cout << "输入要完成的订单内部编码:> ";
+        std::cin >> checkedName;
+
+        auto it = data.appOrder.begin();// 迭代器
+        bool found = false; // 标记是否找到订单
+        while (it != data.appOrder.end()) {
+            if (it->compareID(checkedName)) {
+                it->setCondition("已完成");
+                found = true;
+                break;
+            } else {
+                ++it;
+            }
+        }
+
+        if (!found) {
+            std::cout << "找不到要完成的订单！" << std::endl;
+        }else{
+            std::cout << "已完成订单！" << std::endl;
+        }
+        break;
+    }
 	case 0:
 		//返回上一级
 		MenuMgr::getInstance( ).setCurrentMenu( MenuType::MAIN_MENU );

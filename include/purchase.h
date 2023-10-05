@@ -29,6 +29,7 @@ public:
     }
     void showPurchaseInfo();
     std::string backMsg(){return id + "," + name + "," + num + "," + type + "," + request;}
+    bool compareName(std::string& name) {return this->name == name;}
 private:
     std::string id; // 内部编号
     std::string name; // 内部名
