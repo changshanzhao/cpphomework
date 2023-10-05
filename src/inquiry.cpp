@@ -19,15 +19,22 @@ Inquiry::Inquiry(std::string formatInfo) {
 
     msg = formatInfo;
 }
-// 主观价格 = 价格-价格*供应商星级*0.02-价格*询价过程星级*0.01
+
 bool comparePairs(const std::pair<std::string, float>& pair1, const std::pair<std::string, float>& pair2) {
     return pair1.second < pair2.second;
 }
 std::string Inquiry::best_choice(std::string ID)
 {
     int findTarget = 0;
+    float vendor_weight = 0;
+    float inquiry_weight = 0;
     std::vector<pair<std::string, float>> res_pair;
     MSG("---------------------------checked----------------------------");
+    MSG("主观价格 = 价格-价格*供应商星级*供应商星级权重-价格*询价过程星级*询价星级权重");
+    MSG("请输入供应商星级权重（建议值0.02）：");
+    cin >> vendor_weight;
+    MSG("请输入询价星级权重（建议值0.01）：");
+    cin >> inquiry_weight;
     for(Inquiry tmp : data.appInquiry)
     {
         if(tmp.compareID(ID)){
@@ -38,8 +45,8 @@ std::string Inquiry::best_choice(std::string ID)
                 {
                     res_pair.push_back(make_pair(tmp.v_name, \
                     std::atoi(tmp.money.c_str()) \
-                    -std::atoi(v_t.get_level().c_str())*0.02 \
-                    -std::atoi(tmp.level.c_str())*0.01));
+                    -std::atoi(v_t.get_level().c_str())*vendor_weight \
+                    -std::atoi(tmp.level.c_str())*inquiry_weight));
                     findTarget++;
                     break;
                 }
