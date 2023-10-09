@@ -14,6 +14,9 @@ chmod +x AutoBuild.sh
 5. 请不要使用msvc编译器，应该是命名空间的问题，不让变量命名为data，算了，就用gcc吧，windows里用MinGW（里面是gcc编译器）。
 ![clion](README.assets/clion.png)
 
+# 需求分析
+![需求分析](README.assets/需求分析.png)
+
 # 代码框架
 ```txt
 .
