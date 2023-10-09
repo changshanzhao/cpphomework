@@ -11,7 +11,7 @@ chmod +x AutoBuild.sh
 2. make编译选项中，添加-fexec-charset=GBK -finput-charset=GBK，保证编译器编译时使用GBK编码。
 3. VS中请将Data类实例化出的data更改为其他名字，msvc编译器里也有一个data，命名冲突。
 4. clion中，请使用外部控制台运行程序，否则会出现乱码。如下图所示：
-
+5. 请不要使用msvc编译器，应该是命名空间的问题，不让变量命名为data，算了，就用gcc吧，windows里用MinGW（里面是gcc编译器）。
 ![clion](README.assets/clion.png)
 
 # 代码框架
@@ -69,7 +69,6 @@ chmod +x AutoBuild.sh
 # 存在待改进的问题
 1. 应该创建一个接口类。因为5个txt文件的功能类似，可以有一个共同的父类，以便实现多态。
    （当时写的时候想的没那么多，没有事先设计好。看到题目直接开始写，看到几个txt文件就写了几个类，写完了才发现有点烂，但已经不想改了）
-2. 功能少，没想到啥创意，基本就是要求写啥就写啥了。
 
 
 
