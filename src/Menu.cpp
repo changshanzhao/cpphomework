@@ -23,7 +23,7 @@ bool Menu::exported = false;// 记录是否执行过导出操作
 
 //退出保存确认
 void Menu::confirmExit() {
-    cout << "\n\t是否导出更改？（Y/N）: ";
+    cout << "\n\t当前未导出，是否导出更改？（Y/N）: ";
     char choice;
     cin >> choice;
     if (choice == 'Y' || choice == 'y') {
@@ -857,21 +857,26 @@ bool ExportMenu::doChoice( int choice ) {
 	case 1:
 		data.exportLists(DataSectionOffSet::VENDOR);
         Menu::exported = true;
+        cout<<"\n\t已导出供应商列表！"<<endl;
 		break;
 	case 2:
         data.exportLists(DataSectionOffSet::PRODUCT);
         Menu::exported = true;
+        cout<<"\n\t已导出商品列表！"<<endl;
 		break;
 	case 3:
         data.exportLists(DataSectionOffSet::PURCHASE);
         Menu::exported = true;
+        cout<<"\n\t已导出采购单列表！"<<endl;
 		break;
     case 4:
         data.exportLists(DataSectionOffSet::INQUIRY);
         Menu::exported = true;
+        cout<<"\n\t已导出询价列表！"<<endl;
         break;
     case 5:
         data.exportLists(DataSectionOffSet::ORDER);
+        cout << "\n\t已导出订单列表！" << endl;
         Menu::exported = true;
         break;
     case 6:
@@ -880,6 +885,7 @@ bool ExportMenu::doChoice( int choice ) {
         data.exportLists(DataSectionOffSet::PURCHASE);
         data.exportLists(DataSectionOffSet::INQUIRY);
         data.exportLists(DataSectionOffSet::ORDER);
+        cout<<"\n\t已导出所有列表！"<<endl;
         Menu::exported = true;
         break;
 	case 0:
